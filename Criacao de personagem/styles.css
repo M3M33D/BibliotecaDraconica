@@ -1,0 +1,330 @@
+/* Reset Styles */
+body,h1,h2,p,ul,li,a,button,input,textarea {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Global Styles */
+  body,
+  html {
+    width: 100%;
+    overflow-x: hidden; /* Evita rolagem horizontal */
+  }
+  
+  body {
+    font-family: "Arial", sans-serif;
+    background-color: #f0f0f0 !important; /* Fundo claro */
+    color: #1b1b1b !important; /* Texto mais escuro */
+}
+  
+  /* Header Styles */
+  .header {
+    background-color: #1b1b1b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    color: white;
+    border-bottom: 2px solid #e74c3c; /* Linha inferior */
+  }
+  
+  .header .logo img {
+    height: 50px;
+  }
+  
+  .header .navigation {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header .navigation ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .header .navigation a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+  
+  .header .navigation a:hover {
+    color: #e74c3c;
+    text-shadow: 0 0 10px #e74c3c; /* Sombra de texto */
+  }
+  
+  /* Login Button Styles */
+  .header .login {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .header .login .login-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .header .login .login-btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+  }
+  
+  /* Main Content Styles */
+  .main-content {
+    display: flex;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff !important; /* Fundo branco */
+}
+  
+  /* Sidebar Styles */
+  .sidebar {
+    width: 250px;
+    background-color: #2c2c2c;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+  }
+  
+  .sidebar li {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar a {
+    color: #e74c3c;
+    text-decoration: none;
+    font-size: 1.1em;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .sidebar a:hover {
+    background-color: #444;
+    transform: scale(1.02);
+  }
+  
+  /* Character Builder Styles */
+  .character-builder {
+    flex: 1;
+    background-color: #111;
+    padding: 20px;
+    border-radius: 5px;
+    height: 100px;
+  }
+  
+  .character-builder h1 {
+    margin-bottom: 20px;
+  }
+  
+  .character-builder .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .character-builder .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+  }
+  
+  .character-builder .form-group input,
+  .character-builder .form-group select,
+  .character-builder .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    background-color: #222;
+    color: #fff;
+    font-size: 1em;
+  }
+  
+  .character-builder .form-group textarea {
+    height: 150px;
+    resize: vertical;
+  }
+  
+  .character-builder .cta-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .character-builder .cta-btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+  }
+  
+  /* Footer Styles */
+  .footer {
+    background-color: #111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+  }
+  
+  /* Additional Styling for Character Attributes Page */
+  .attributes-page {
+    background-color: #111;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .attributes-page h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+  }
+  
+  .attributes-page .attribute-group {
+    margin-bottom: 20px;
+  }
+  
+  .attributes-page .attribute-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+  }
+  
+  .attributes-page .attribute-group input,
+  .attributes-page .attribute-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    background-color: #222;
+    color: #fff;
+    font-size: 1em;
+  }
+  
+  .attributes-page .attribute-group textarea {
+    height: 100px;
+    resize: vertical;
+  }
+  
+  .attributes-page .cta-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .attributes-page .cta-btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+  }
+  
+  /* Área de Atributos */
+.attributes-page {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #111;
+    border-radius: 5px;
+  }
+  
+  .attributes-page h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #e74c3c; /* Cor do título */
+    text-align: center;
+  }
+  
+  .attributes-page .attribute-group {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .attributes-page .attribute-group h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #e74c3c; /* Cor dos subtítulos */
+  }
+  
+  .attributes-page .attribute-group .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .attributes-page .attribute-group .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+  }
+  
+  .attributes-page .attribute-group .form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    background-color: #222;
+    color: #fff;
+    font-size: 1em;
+  }
+  
+  .attributes-page .attribute-group .form-group input:focus {
+    outline: none;
+    border-color: #e74c3c;
+    background-color: #333;
+  }
+  
+  .attributes-page .attribute-group .cta-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .attributes-page .attribute-group .cta-btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+  }
+  
+  /* Adicionando um estilo similar à escolha de classes */
+  .attributes-page .attribute-group {
+    border: 1px solid #333;
+    background-color: #1f1f1f;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Ajustes para a área de atributos */
+  .attributes-page .attribute-group .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .attributes-page .attribute-group .form-group input[type="text"],
+  .attributes-page .attribute-group .form-group select {
+    margin-top: 5px;
+  }
+  

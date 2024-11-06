@@ -1,0 +1,939 @@
+:root {
+  --vermelho-principal: #dd1616; /* Cor principal */
+  --fundo-branco: #1a1a1d; /* Fundo branco */
+  --texto-preto: #ffffff; /* Texto preto */
+  --fundo-claro: #333; /* Fundo claro */
+  --texto-claro: #ffffff; /* Texto claro */
+  --fonte: 'Poppins', sans-serif; /* Fonte */
+}
+
+/* Global Styles */
+body, html {
+  width: 100%;
+  overflow-x: hidden; /* Evita rolagem horizontal */
+}
+
+body {
+  font-family: var(--fonte);
+  background-color: var(--fundo-branco);
+  color: var(--texto-preto);
+}
+
+/* Header Styles */
+.header {
+  background-color: var(--fundo-branco);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px;
+  color: var(--texto-preto);
+}
+
+.logo img {
+  height: 50px;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.navigation ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  position: relative;
+}
+
+.navigation a {
+  color: var(--texto-preto);
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.navigation a:hover {
+  color: var(--vermelho-principal);
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--fundo-claro);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1;
+  width: max-content; /* Ajuste para o conteúdo */
+}
+
+.dropdown-item {
+  position: relative;
+}
+
+.dropdown-item a {
+  display: block;
+  padding: 10px;
+  color: var(--texto-preto);
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-family: var(--fonte);
+}
+
+.dropdown-item a:hover {
+  background-color: var(--vermelho-principal);
+}
+
+.dropdown-item .submenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: var(--fundo-claro);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 2;
+  width: max-content; /* Ajuste para o conteúdo */
+}
+
+.dropdown-item:hover .submenu {
+  display: block;
+}
+
+.dropdown-item .submenu a {
+  padding: 10px;
+  color: var(--texto-preto);
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-item .submenu a:hover {
+  background-color: var(--vermelho-principal);
+}
+
+/* Show dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Login Button Styles */
+.login {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.login-btn {
+  background-color: var(--vermelho-principal);
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-right: 25px;
+  text-decoration: none;
+}
+
+.login-btn:hover {
+  background-color: #c0392b; /* Cor para hover */
+  transform: scale(1.05);
+}
+
+/* Search Bar Styles */
+.search-bar {
+  padding: 15px;
+  background-color: var(--fundo-claro);
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center;
+}
+
+.search-bar form {
+  display: flex;
+  max-width: 500px; /* Limita a largura máxima */
+  width: 100%; /* Usa a largura total do contêiner */
+  gap: 0;
+  position: relative; /* Para posicionar a lista de sugestões */
+}
+
+.search-bar input {
+  padding: 15px;
+  font-size: 1em;
+  border-radius: 5px 0 0 5px;
+  border: 2px solid #333;
+  outline: none;
+  background-color: var(--fundo-branco);
+  color: var(--texto-preto);
+  width: 100%; /* O input ocupa 100% da largura do form */
+}
+
+.search-bar button {
+  padding: 15px;
+  font-size: 1em;
+  background-color: var(--vermelho-principal);
+  color: white;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.search-bar button:hover {
+  background-color: #c0392b; /* Cor para hover */
+  transform: scale(1.05);
+}
+
+/* Banner Styles */
+.banner {
+  background-image: url("/Imagens/banner.jpg");
+  background-size: cover;
+  background-position: center;
+  color: var(--texto-preto);
+  text-align: center;
+  padding: 250px 20px; /* Ajustado para ocupar mais espaço */
+}
+
+.banner-content {
+  display: inline-block; /* Faz com que o conteúdo ocupe apenas o espaço necessário */
+  background-color: rgba(77, 75, 75, 0.8); /* Fundo branco semi-transparente */
+  padding: 20px;
+  border-radius: 10px; /* Bordas arredondadas */
+  border: 2px solid #272727; /* Borda de destaque */
+}
+
+.banner-content h1,
+.banner-content p {
+  margin: 0;
+  padding: 10px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adiciona sombra para melhorar a legibilidade */
+}
+
+.banner-content h1 {
+  font-size: 3em;
+}
+
+.banner-content p {
+  font-size: 1.5em;
+}
+
+.cta-btn {
+  background-color: var(--vermelho-principal);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+}
+
+.cta-btn:hover {
+  background-color: #c0392b; /* Cor para hover */
+  transform: scale(1.05);
+}
+
+/* Content Section Styles */
+.content {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 20px;
+  background-color: var(--fundo-branco);
+  max-width: 1900px; /* Largura máxima do conteúdo */
+  margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+.content-block {
+  text-align: center;
+  width: 30%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--fundo-claro);
+  border-radius: 8px; /* Bordas arredondadas */
+  padding: 20px; /* Espaçamento interno */
+}
+
+.content-block h2 {
+  font-size: 2em;
+  color: var(--texto-preto);
+  margin-bottom: 15px;
+}
+
+.content-block p {
+  color: var(--texto-claro);
+}
+
+.content-block:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Additional Options Styles */
+.additional-options {
+  background-color: var(--fundo-branco);
+  padding: 20px;
+  text-align: center;
+  max-width: 1880px; /* Largura máxima do conteúdo */
+  margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+.additional-options .options-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.additional-options h2 {
+  margin-bottom: 15px;
+}
+
+.additional-options ul {
+  list-style: none;
+  padding: 0;
+}
+
+.additional-options li {
+  margin: 10px 0;
+}
+
+.additional-options a {
+  color: var(--vermelho-principal);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.additional-options a:hover {
+  color: #c0392b; /* Cor para hover */
+}
+
+/* Footer Styles */
+.footer {
+  background-color: var(--fundo-claro);
+  color: var(--texto-preto);
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+}
+
+/* Autocomplete Styles */
+.autocomplete-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--fundo-branco);
+  border: 1px solid #ccc;
+  z-index: 999; /* Coloca a lista acima de outros elementos */
+  display: none; /* Oculta por padrão */
+}
+
+.autocomplete-results.active {
+  display: block; /* Exibe quando ativo */
+}
+
+.autocomplete-results div {
+  padding: 10px;
+  cursor: pointer;
+  color: var(--texto-preto); /* Texto preto */
+  transition: background-color 0.3s ease;
+}
+
+.autocomplete-results div:hover {
+  background-color: var(--vermelho-principal); /* Fundo ao passar o mouse */
+  color: white; /* Texto branco ao passar o mouse */
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .content {
+    flex-direction: column; /* Coloca as colunas em uma coluna */
+    align-items: center; /* Centraliza o conteúdo */
+  }
+
+  .content-block {
+    width: 80%; /* Ajusta a largura dos blocos de conteúdo */
+    margin-bottom: 20px; /* Espaçamento entre os blocos */
+  }
+}
+
+
+
+.content-block h2 {
+  font-size: 2em;
+  color: #fff; /* Títulos brancos */
+  margin-bottom: 15px;
+}
+
+.content-block p {
+  color: #ccc; /* Texto ligeiramente mais claro */
+}
+
+.content-block:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Additional Options Styles */
+.additional-options {
+  background-color: #111; /* Fundo preto */
+  padding: 20px;
+  text-align: center;
+  max-width: 1880px; /* Largura máxima do conteúdo */
+  margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+.additional-options .options-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.additional-options h2 {
+  margin-bottom: 15px;
+}
+
+.additional-options ul {
+  list-style: none;
+  padding: 0;
+}
+
+.additional-options li {
+  margin: 10px 0;
+}
+
+.additional-options a {
+  color: #e74c3c;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.additional-options a:hover {
+  color: #c0392b;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #111;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+}
+
+/* Autocomplete Styles */
+.autocomplete-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #222;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+  display: none; /* Inicialmente escondido */
+}
+
+.autocomplete-result {
+  padding: 10px;
+  cursor: pointer;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.autocomplete-result:hover {
+  background-color: #e74c3c;
+}
+
+/* Media Queries */
+
+/* Para telas menores que 576px */
+@media (max-width: 576px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navigation ul {
+    flex-direction: column;
+    gap: 10px;
+    position: static;
+  }
+
+  .search-bar form {
+    flex-direction: column;
+    width: 100%;
+    
+  }
+
+  .search-bar input {
+    border-radius: 5px;
+    margin-bottom: 10px; /* Espaço entre o input e o botão */
+  }
+
+  .search-bar button {
+    border-radius: 5px;
+    width: 100%; /* Botão ocupa toda a largura */
+  }
+
+  .content {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .content-block {
+    width: 100%;
+    margin-bottom: 20px; /* Espaço entre blocos */
+  }
+
+  .banner {
+    padding: 150px 10px; /* Reduzido o padding para telas menores */
+  }
+
+  .banner-content h1 {
+    font-size: 2.5em; /* Tamanho do texto reduzido */
+  }
+
+  .banner-content p {
+    font-size: 1.2em;
+  }
+
+  .cta-btn {
+    padding: 10px 20px; /* Tamanho do botão reduzido */
+  }
+
+  .footer {
+    padding: 15px;
+  }
+}
+
+/* Para telas entre 577px e 768px */
+@media (min-width: 577px) and (max-width: 768px) {
+  .header {
+    padding: 10px;
+  }
+
+  .logo img {
+    height: 40px;
+  }
+
+  .navigation ul {
+    gap: 15px;
+  }
+
+  .banner {
+    padding: 200px 15px; /* Ajusta o padding para telas menores */
+  }
+
+  .banner-content h1 {
+    font-size: 2.8em;
+  }
+
+  .banner-content p {
+    font-size: 1.3em;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content-block {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .footer {
+    padding: 15px;
+  }
+}
+
+/* Para telas entre 769px e 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header {
+    padding: 20px;
+  }
+
+  .logo img {
+    height: 50px;
+  }
+
+  .navigation ul {
+    gap: 20px;
+  }
+
+  .banner {
+    padding: 180px 20px; /* Ajusta o padding para telas intermediárias */
+  }
+
+  .banner-content h1 {
+    font-size: 2.5em;
+  }
+
+  .banner-content p {
+    font-size: 1.3em;
+  }
+
+  .content {
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+
+  .content-block {
+    width: 90%;
+    margin-bottom: 25px;
+  }
+
+  .footer {
+    padding: 20px;
+  }
+}
+
+/* Para telas maiores que 1024px */
+@media (min-width: 1025px) {
+  .header {
+    padding: 20px;
+  }
+
+  .logo img {
+    height: 60px;
+  }
+
+  .navigation ul {
+    gap: 25px;
+  }
+
+  .banner {
+    padding: 250px 20px;
+  }
+
+  .banner-content h1 {
+    font-size: 3em;
+  }
+
+  .banner-content p {
+    font-size: 1.5em;
+  }
+
+  .content {
+    flex-direction: row;
+    padding: 50px 20px;
+  }
+
+  .content-block {
+    width: 30%;
+    margin-bottom: 30px;
+  }
+
+  .footer {
+    padding: 25px;
+  }
+}
+/* Ajustes para a versão mobile */
+@media (max-width: 576px) {
+  .header {
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens */
+    padding: 10px;
+  }
+
+  .navigation ul {
+    flex-direction: column;
+    align-items: center; /* Centraliza os links */
+    gap: 10px;
+  }
+
+  .search-bar form {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .search-bar input {
+    border-radius: 5px;
+    margin-bottom: 10px; /* Espaço entre o input e o botão */
+  }
+
+  .search-bar button {
+    border-radius: 5px;
+    width: 100%; /* Botão ocupa toda a largura */
+  }
+
+  .banner {
+    padding: 150px 10px; /* Ajuste o padding */
+  }
+
+  .banner-content h1 {
+    font-size: 2.5em; /* Tamanho do texto reduzido */
+  }
+
+  .banner-content p {
+    font-size: 1.2em;
+  }
+
+  .cta-btn {
+    padding: 10px 20px; /* Tamanho do botão reduzido */
+    font-size: 1.1em; /* Tamanho do texto do botão */
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center; /* Centraliza os blocos de conteúdo */
+  }
+
+  .content-block {
+    width: 90%; /* Ajusta a largura */
+    margin-bottom: 20px; /* Espaço entre blocos */
+  }
+
+  .footer {
+    padding: 15px;
+  }
+
+  /* Adicionando sombra para destaque */
+  .content-block {
+    background-color: #222; /* Fundo para os blocos */
+    border-radius: 8px; /* Bordas arredondadas */
+    padding: 20px; /* Espaçamento interno */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: transform 0.2s, box-shadow 0.2s; /* Transição suave */
+  }
+
+  .content-block:hover {
+    transform: translateY(-5px); /* Eleva o bloco ao passar o mouse */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra ao hover */
+  }
+}
+
+/* Adicionar estas regras para autocomplete */
+.search-bar {
+  padding: 15px;
+  background-color: #1b1b1b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar input {
+  padding: 15px;
+  font-size: 1em;
+  border-radius: 5px 0 0 5px;
+  border: none;
+  outline: none;
+  background-color: #222;
+  color: #fff;
+  width: 100%;
+}
+
+.autocomplete-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #222;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+  display: none;
+}
+
+.autocomplete-result {
+  padding: 10px;
+  cursor: pointer;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.autocomplete-result:hover {
+  background-color: #e74c3c;
+}
+
+.search-bar {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background-color:#202020;
+  width: 100%;
+  max-width: 400px; /* Ajuste o tamanho máximo conforme necessário */
+}
+
+.search-bar input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px 0 0 5px;
+  border: 2px solid #5d5d5d;
+  outline: none;
+  background-color: #222;
+  color: #fff;
+  width: 100%;
+  transition: border-color 0.3s ease;
+}
+
+.search-bar input:focus {
+  border-color: #007bff; /* Cor de foco do campo de pesquisa */
+}
+
+/* Estilo dos resultados de pesquisa */
+.autocomplete-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  background: #222;
+  border: 1px solid #333;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  display: none;
+}
+
+/* Estilo dos itens de resultado */
+.autocomplete-result {
+  padding: 10px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.autocomplete-result:hover {
+  background-color: #e74c3c; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilo para a animação de fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+  .search-bar {
+    padding: 10px;
+  }
+
+  .search-bar input {
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #333;
+  }
+
+  .autocomplete-results {
+    max-height: 150px;
+    border-width: 1px;
+  }
+
+  .autocomplete-result {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+/* Estilo para telas muito pequenas */
+@media (max-width: 480px) {
+  .search-bar {
+    padding: 8px;
+  }
+
+  .search-bar input {
+    padding: 10px;
+    font-size: 12px;
+    border-radius: 3px 0 0 3px;
+  }
+
+  .autocomplete-results {
+    max-height: 120px;
+  }
+
+  .autocomplete-result {
+    font-size: 12px;
+    padding: 6px;
+  }
+}
+.content-block {
+  background-color: #222;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.content-block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 10, 0.3);
+}
+
+.autocomplete-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #222;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+  display: none; /* Inicialmente escondido */
+}
+
+.autocomplete-result {
+  padding: 10px;
+  cursor: pointer;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.autocomplete-result:hover {
+  background-color: #e74c3c;
+}
+
+.botao {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.botao:hover {
+  background-color: #333; /* Cor de fundo quando o botão é hover */
+  transform: scale(1.05); /* Aumenta um pouco o tamanho do botão */
+}
+.entrada-animada {
+opacity: 0;
+transform: translateY(20px);
+transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.entrada-animada.visible {
+opacity: 1;
+transform: translateY(0);
+}
+.fade-in {
+opacity: 0;
+transition: opacity 1s ease-in-out;
+}
+
+.fade-in.visible {
+opacity: 1;
+}

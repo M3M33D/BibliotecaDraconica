@@ -1,0 +1,58 @@
+/* Configurações gerais */
+body {
+    color: white;
+    text-align: center;
+}
+
+/* Estilo do dado */
+#dice {
+    width: 150px;
+    height: 150px;
+    background-color: #ff4444; /* Cor do dado */
+    font-size: 3em;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    transition: transform 0.3s;
+    text-align: center;
+    line-height: 150px; /* Para centralizar o número */
+    font-family: 'Arial', sans-serif; /* Fonte simples */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+
+    /* Criar forma de dodecágono com 12 lados */
+    clip-path: polygon(
+        30% 0%, 70% 0%, 
+        90% 15%, 100% 40%, 
+        100% 60%, 90% 85%, 
+        70% 100%, 30% 100%, 
+        10% 85%, 0% 60%, 
+        0% 40%, 10% 15%
+    );
+}
+
+/* Botão de rolar dado */
+#rollButton {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#rollButton:hover {
+    background-color: #666;
+}
+
+/* Resultado do dado */
+#result {
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 20px;
+}

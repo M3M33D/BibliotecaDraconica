@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biblioteca Dracônica</title>
+    <link rel="stylesheet" href="/Tela Principal/styles2.css" />
+    <link rel="stylesheet" href="/Conteudo/style.css" />
+    <link rel="icon" href="/Imagens/logo.png" type="image/png" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="header">
+      <div class="logo">
+        <img src="/Imagens/logo2.png" alt="Logo" />
+      </div>
+      <nav class="navigation">
+        <ul>
+          <li><a href="/Tela Principal/telaPrincipal.html">Início</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropbtn"
+              >Sistemas de RPG <span class="arrow">&#9662;</span></a
+            >
+            <div class="dropdown-content">
+              <div class="dropdown-item">
+                <a href="/DnD/Dn">D&D <span class="arrow">&#9656;</span></a>
+                <div class="submenu">
+                  <a href="/Criacao de personagem/criacao.html">Fichas</a>
+                  <a href="#">Descubra Mais</a>
+                </div>
+              </div>
+              <div class="dropdown-item">
+                <a href="#">Tormenta20 <span class="arrow">&#9656;</span></a>
+                <div class="submenu">
+                  <a href="#">Fichas</a>
+                  <a href="#">Descubra Mais</a>
+                </div>
+              </div>
+              <div class="dropdown-item">
+                <a href="#"
+                  >Ordem Paranormal <span class="arrow">&#9656;</span></a
+                >
+                <div class="submenu">
+                  <a href="#">Fichas</a>
+                  <a href="#">Descubra Mais</a>
+                </div>
+              </div>
+              <div class="dropdown-item">
+                <a href="#"
+                  >Vampiro: A Máscara <span class="arrow">&#9656;</span></a
+                >
+                <div class="submenu">
+                  <a href="#">Fichas</a>
+                  <a href="#">Descubra Mais</a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li><a href="#">Ferramentas</a></li>
+          <li><a href="#">Ajuda</a></li>
+        </ul>
+      </nav>
+      <section class="search-bar">
+        <form id="search-form" action="#" method="get">
+          <input
+            type="text"
+            id="search-input"
+            autocomplete="off"
+            placeholder="Buscar..."
+            aria-label="Buscar"
+          />
+          <button type="submit">Pesquisar</button>
+        </form>
+        <div id="autocomplete-results" class="autocomplete-results"></div>
+      </section>
+
+      <div class="login">
+        <a href="/Login/Login.html" class="login-btn">Login</a>
+      </div>
+    </header>
+
+    <!-- Carrossel de Raças -->
+    <section class="champion-carousel">
+      <div class="champion-slide active" id="tiefling">
+        <div
+          class="champion-background"
+          style="background-image: url('/Imagens/tiefling_background.jpg')"
+        >
+          <div class="champion-content">
+            <img src="/Imagens/aluka-removebg-preview.png" alt="Tiefling" />
+            <div class="champion-details">
+              <h1>Tiefling</h1>
+              <p>
+                Tieflings possuem herança infernal, com características físicas
+                marcantes. Vivem em minoria e são vistos com desconfiança, mas
+                são autossuficientes e resilientes.
+              </p>
+              <a
+                href="/PaginasConteudo/tiefling.html"
+                class="explore-button-link"
+              >
+                <button class="explore-button">Descubra Mais</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="champion-slide" id="reborn">
+        <div
+          class="champion-background"
+          style="background-image: url('/Imagens/reborn_background.jpg')"
+        >
+          <div class="champion-content">
+            <img
+              src="/Imagens/dungeons-and-dragons-2024-players-handbook-fighter-full-page-splash-removebg-preview (1).png"
+              alt="Reborn"
+            />
+            <div class="champion-details">
+              <h1>Anao</h1>
+              <p>
+                Conhecidos por sua resistência física e determinação, os anões
+                são mestres da mineração e forja. Habitantes de montanhas,
+                possuem corpos robustos e um forte senso de honra e família.
+              </p>
+              <a
+                href="/PaginasConteudo/anao.html"
+                class="explore-button-link"
+              >
+                <button class="explore-button">Descubra Mais</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="champion-slide" id="reborn">
+        <div
+          class="champion-background"
+          style="background-image: url('/Imagens/reborn_background.jpg')"
+        >
+          <div class="champion-content">
+            <img src="/Imagens/humano-removebg-preview.png" alt="Reborn" />
+            <div class="champion-details">
+              <h1>Humano</h1>
+              <p>
+                Versáteis e ambiciosos, os humanos são a raça mais adaptável.
+                Sua habilidade de se destacar em qualquer área faz deles líderes
+                e pioneiros em diversas culturas.
+              </p>
+              <a
+                href="/PaginasConteudo/Humano.html"
+                class="explore-button-link"
+              >
+                <button class="explore-button">Descubra Mais</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="champion-slide" id="reborn">
+        <div
+          class="champion-background"
+          style="background-image: url('/Imagens/reborn_background.jpg')"
+        >
+          <div class="champion-content">
+            <img src="/Imagens/elfo_5-removebg-preview.png" alt="Reborn" />
+            <div class="champion-details">
+              <h1>Elfo</h1>
+              <p>
+                Elegantes e imortais, os elfos são ligados à magia e à natureza.
+                São graciosos e possuidores de uma visão profunda da história e
+                do cosmos.
+              </p>
+              <a
+                href="/PaginasConteudo/elfo.html"
+                class="explore-button-link"
+              >
+                <button class="explore-button">Descubra Mais</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="champion-slide" id="reborn">
+        <div
+          class="champion-background"
+          style="background-image: url('/Imagens/reborn_background.jpg')"
+        >
+          <div class="champion-content">
+            <img src="/Imagens/half-removebg-preview (1).png" alt="Reborn" />
+            <div class="champion-details">
+              <h1>Halfling</h1>
+              <p>
+                Pequenos, ágeis e otimistas, os halflings amam a vida simples e
+                tranquila, embora frequentemente se encontrem em grandes
+                aventuras por curiosidade e coragem.
+              </p>
+              <a
+                href="/PaginasConteudo/halfling.html"
+                class="explore-button-link"
+              >
+                <button class="explore-button">Descubra Mais</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="champion-slide" id="reborn">
+        <div
+          class="champion-background"
+          style="background-image: url('/Imagens/reborn_background.jpg')"
+        >
+          <div class="champion-content">
+            <img src="/Imagens/dragonborn-Photoroom.png" alt="Reborn" />
+            <div class="champion-details">
+              <h1>Draconato</h1>
+              <p>
+                Com descendência de dragões, os draconatos são imponentes e
+                honrados, possuindo a habilidade de expelir energia elemental
+                conforme sua linhagem dracônica.
+              </p>
+              <a
+                href="/PaginasConteudo/draconato.html"
+                class="explore-button-link"
+              >
+                <button class="explore-button">Descubra Mais</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="champion-slide" id="reborn">
+        <div
+          class="champion-background"
+          style="background-image: url('/Imagens/reborn_background.jpg')"
+        >
+          <div class="champion-content">
+            <img
+              src="/Imagens/new-gnome-dnd-2024-17-removebg-preview.png"
+              alt="Reborn"
+            />
+            <div class="champion-details">
+              <h1>Gnomo</h1>
+              <p>
+                Criativos e engenhosos, os gnomos adoram explorar o
+                conhecimento, ciência e magia, sendo conhecidos por suas
+                invenções e habilidades em resolver problemas complexos.
+              </p>
+              <a
+                href="/PaginasConteudo/Meio elfo.html"
+                class="explore-button-link"
+              >
+                <button class="explore-button">Descubra Mais</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="champion-slide" id="reborn">
+        <div
+          class="champion-background"
+          style="background-image: url('/Imagens/reborn_background.jpg')"
+        >
+          <div class="champion-content">
+            <img src="/Imagens/meio-elfo-removebg-preview.png" alt="Reborn" />
+            <div class="champion-details">
+              <h1>Meio-Elfo</h1>
+              <p>
+                Mistura de humano e elfo, os meio-elfos possuem a versatilidade
+                humana e a longevidade e graça élficas, sendo hábeis mediadores
+                e aventureiros.
+              </p>
+              <a
+                href="/PaginasConteudo/MeioOrc.html"
+                class="explore-button-link"
+              >
+                <button class="explore-button">Descubra Mais</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="champion-slide" id="reborn">
+        <div
+          class="champion-background"
+          style="background-image: url('/Imagens/reborn_background.jpg')"
+        >
+          <div class="champion-content">
+            <img
+              src="/Imagens/DD5_Meio-orc-removebg-preview.png"
+              alt="Reborn"
+            />
+            <div class="champion-details">
+              <h1>Meio-Orc</h1>
+              <p>
+                Fortes e resilientes, os meio-orcs nascem de uma mistura de
+                humanos e orcs, combinando a brutalidade dos orcs com a
+                adaptabilidade humana, frequentemente enfrentando preconceito,
+                mas exibindo grande força e determinação.
+              </p>
+              <a
+                href="/PaginasConteudo/tiefling.html"
+                class="explore-button-link"
+              >
+                <button class="explore-button">Descubra Mais</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Adicionar mais raças aqui -->
+      <button class="carousel-control prev" onclick="prevSlide()">
+        &#10094;
+      </button>
+      <button class="carousel-control next" onclick="nextSlide()">
+        &#10095;
+      </button>
+    </section>
+
+    <!-- Additional Options Section -->
+    <section class="additional-options">
+      <div class="options-content">
+        <h2>Mais Opções</h2>
+        <ul>
+          <li><a href="#">Configurações</a></li>
+          <li><a href="#">Sobre Nós</a></li>
+          <li><a href="#">Contate-nos</a></li>
+        </ul>
+      </div>
+    </section>
+    <script src="/Tela Principal/script.js"></script>
+    <script src="/Conteudo/script.js"></script>
+    <!-- Footer Section -->
+    <footer class="footer">
+      <p>&copy; 2024 Biblioteca Dracônica.</p>
+    </footer>
+  </body>
+</html>

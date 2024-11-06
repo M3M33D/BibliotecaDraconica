@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Biblioteca Dracônica</title>
+    <link rel="stylesheet" href="/Login/login.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="image-container"></div>
+        <div class="form-container">
+            <div id="login-form-container">
+                <h1 class="form-title">Login</h1>
+                <form id="login-form" action="#" method="POST">
+                    <div class="input-group">
+                        <label for="username">Usúario</label>
+                        <input type="text" id="username" name="username" required>
+                        <p class="error-message">Nome de Usúario</p>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" name="password" required>
+                        <p class="error-message">Porfavor digite sua senha</p>
+                    </div>
+                    <button type="submit" class="cta-btn">Login</button>
+                    <p class="switch-form">Não tem uma conta? <a href="#" onclick="switchForm('signup')">Cadastre-se</a></p>
+                </form>
+            </div>
+            <div id="signup-form-container" class="hidden">
+                <h1 class="form-title">Cadastre-se</h1>
+                <form id="signup-form" action="#" method="POST">
+                    <div class="input-group">
+                        <label for="new-username">Usúario</label>
+                        <input type="text" id="new-username" name="new-username" required>
+                        <p class="error-message">Crie seu nome de usúario</p>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                        <p class="error-message">Porfavor coloque um email valido!</p>
+                    </div>
+                    <div class="input-group">
+                        <label for="new-password">Senha</label>
+                        <input type="password" id="new-password" name="new-password" required>
+                        <p class="error-message">Porfavor coloque uma Senha!</p>
+                    </div>
+                    <button type="submit" class="cta-btn">Login</button>
+                    <p class="switch-form">Já tem uma conta?<a href="#" onclick="switchForm('login')"> faça Login</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchForm(form) {
+            document.querySelectorAll('.form-container > div').forEach(container => {
+                container.classList.add('hidden');
+            });
+            document.getElementById(`${form}-form-container`).classList.remove('hidden');
+        }
+
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio real do formulário
+            // Verifique se os campos estão preenchidos corretamente se necessário
+            window.location.href = '/Tela Principal/telaPrincipal.html'; // Redireciona para a tela principal
+        });
+
+        document.getElementById('signup-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio real do formulário
+            // Verifique se os campos estão preenchidos corretamente se necessário
+            window.location.href = '/Tela Principal/telaPrincipal.html'; // Redireciona para a tela principal
+        });
+    </script>
+</body>
+</html>

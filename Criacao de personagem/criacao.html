@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criação de Personagens RPG</title>
+    <link rel="stylesheet" href="rpg-character-builder.css" />
+    <link rel="icon" href="/Imagens/logo.png" type="image/png" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <img src="/Imagens/logo.png" alt="Logo" />
+      </div>
+      <nav class="navigation">
+        <ul>
+          <li><a href="/Tela Principal/telaPrincipal.html">Início</a></li>
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="login">
+        <a href="/Login/Login.html" class="login-btn">Login</a>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <aside class="sidebar">
+        <ul>
+          <li><a href="attributes.html">Atributos</a></li>
+          <li><a href="pericias.html">Perícias</a></li>
+          <li><a href="#">Equipamento</a></li>
+          <li><a href="#">Notas</a></li>
+          <li><a href="finalizacao.html">Finalização</a></li>
+        </ul>
+      </aside>
+      <section class="character-builder">
+        <h1>Criação de Personagem</h1>
+        <form action="#" method="get">
+          <div class="form-group">
+            <label for="name">Nome:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Nome do Personagem"
+              autocomplete="name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="level">Nível (máx. 20):</label>
+            <input
+              type="number"
+              id="level"
+              name="level"
+              min="1"
+              max="20"
+              value="1"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="class">Classe:</label>
+            <select id="class" name="class" autocomplete="off">
+              <option value="guerreiro">Guerreiro</option>
+              <option value="mago">Mago</option>
+              <option value="ladrão">Ladino</option>
+              <option value="clérigo">Clérigo</option>
+              <option value="bárbaro">Bárbaro</option>
+              <option value="feiticeiro">Feiticeiro</option>
+              <option value="paladino">Paladino</option>
+              <option value="druida">Druida</option>
+              <option value="monge">Monge</option>
+              <option value="cacador">Caçador</option>
+              <option value="bardo">Bardo</option>
+              <option value="bruxo">Bruxo</option>
+            </select>
+          </div>
+
+          <div class="form-group" id="subclass-group" style="display: none;">
+            <label for="subclass">Subclasse:</label>
+            <select id="subclass" name="subclass" autocomplete="off">
+              <option value="subclasse1">Subclasse 1</option>
+              <option value="subclasse2">Subclasse 2</option>
+              <option value="subclasse3">Subclasse 3</option>
+              <!-- Adicione mais subclasses conforme necessário -->
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="race">Raça:</label>
+            <select id="race" name="race" autocomplete="off">
+              <option value="anão">Anão</option>
+              <option value="elfo">Elfo</option>
+              <option value="halfling">Halfling</option>
+              <option value="12">Humano</option>
+              <option value="0">Draconato</option>
+              <option value="gnomo">Gnomo</option>
+              <option value="8">Meio-Elfo</option>
+              <option value="9">Meio-Orc</option>
+              <option value="13">Tiefling</option>
+              <!-- Mais opções -->
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="sub-race">Sub-raça:</label>
+            <select id="sub-race" name="sub-race" autocomplete="off">
+              <!-- As opções serão atualizadas dinamicamente -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="background">Antecedente:</label>
+            <select id="background" name="background" autocomplete="off">
+              <option value="0">Acólita</option>
+              <option value="1">Charlatão</option>
+              <option value="2">Criminoso</option>
+              <option value="3">Artista</option>
+              <option value="4">Herói do Povo</option>
+              <option value="5">Gladiador</option>
+              <option value="6">Artesão de Guilda</option>
+              <option value="7">Mercador de Guilda</option>
+              <option value="8">Eremita</option>
+              <option value="10">Cavaleiro</option>
+              <option value="9">Nobre</option>
+              <option value="11">Forasteiro</option>
+              <option value="12">Pirata</option>
+              <option value="13">Sábio</option>
+              <option value="14">Marinheiro</option>
+              <option value="15">Soldado</option>
+              <option value="16">Espião</option>
+              <option value="17">Orfão</option>
+            </select>
+          </div>
+          <br />
+          <button type="button" id="save-btn" class="cta-btn">
+            Salvar Personagem
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+      <p>&copy; 2024 Biblioteca Dracônica. Todos os direitos reservados.</p>
+    </footer>
+    <script src="/Criacao de personagem/scripts.js"></script>
+  </body>
+</html>

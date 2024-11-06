@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criação de Personagens RPG</title>
+    <link rel="stylesheet" href="rpg-character-builder.css" />
+    <link rel="stylesheet" href="pericias.css" />
+    <link rel="icon" href="/Imagens/logo.png" type="image/png" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="header">
+      <div class="logo">
+        <img src="/Imagens/logo.png" alt="Logo" />
+      </div>
+      <nav class="navigation">
+        <ul>
+          <li><a href="/Tela Principal/telaPrincipal.html">Início</a></li>
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="login">
+        <a href="/Login/Login.html" class="login-btn">Login</a>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <aside class="sidebar">
+        <ul>
+          <li><a href="criacao.html">Informações Básicas</a></li>
+          <li><a href="attributes.html">Atributos</a></li>
+          <li><a href="equipment.html">Equipamento</a></li>
+          <li><a href="notes.html">Notas</a></li>
+          <li><a href="finalizacao.html">Finalização</a></li>
+        </ul>
+      </aside>
+      <section class="skills-section">
+        <h1>Perícias</h1>
+        <form class="skills-form">
+          <div class="form-group">
+            <label for="acrobatics">Acrobacia</label>
+            <input
+              type="checkbox"
+              id="acrobatics"
+              name="skills"
+              value="acrobatics"
+            />
+          </div>
+          <div class="form-group">
+            <label for="arcana">Arcana</label>
+            <input type="checkbox" id="arcana" name="skills" value="arcana" />
+          </div>
+          <div class="form-group">
+            <label for="athletics">Atletismo</label>
+            <input
+              type="checkbox"
+              id="athletics"
+              name="skills"
+              value="athletics"
+            />
+          </div>
+          <div class="form-group">
+            <label for="performance">Atuação</label>
+            <input
+              type="checkbox"
+              id="performance"
+              name="skills"
+              value="performance"
+            />
+          </div>
+          <div class="form-group">
+            <label for="deception">Blefar</label>
+            <input
+              type="checkbox"
+              id="deception"
+              name="skills"
+              value="deception"
+            />
+          </div>
+          <div class="form-group">
+            <label for="stealth">Furtividade</label>
+            <input type="checkbox" id="stealth" name="skills" value="stealth" />
+          </div>
+          <div class="form-group">
+            <label for="history">História</label>
+            <input type="checkbox" id="history" name="skills" value="history" />
+          </div>
+          <div class="form-group">
+            <label for="intimidation">Intimidação</label>
+            <input
+              type="checkbox"
+              id="intimidation"
+              name="skills"
+              value="intimidation"
+            />
+          </div>
+          <div class="form-group">
+            <label for="insight">Intuição</label>
+            <input type="checkbox" id="insight" name="skills" value="insight" />
+          </div>
+          <div class="form-group">
+            <label for="investigation">Investigação</label>
+            <input
+              type="checkbox"
+              id="investigation"
+              name="skills"
+              value="investigation"
+            />
+          </div>
+          <div class="form-group">
+            <label for="animal-handling">Lidar Com Animais</label>
+            <input
+              type="checkbox"
+              id="animal-handling"
+              name="skills"
+              value="animal-handling"
+            />
+          </div>
+          <div class="form-group">
+            <label for="medicine">Medicina</label>
+            <input
+              type="checkbox"
+              id="medicine"
+              name="skills"
+              value="medicine"
+            />
+          </div>
+          <div class="form-group">
+            <label for="nature">Natureza</label>
+            <input type="checkbox" id="nature" name="skills" value="nature" />
+          </div>
+          <div class="form-group">
+            <label for="perception">Percepção</label>
+            <input
+              type="checkbox"
+              id="perception"
+              name="skills"
+              value="perception"
+            />
+          </div>
+          <div class="form-group">
+            <label for="persuasion">Persuasão</label>
+            <input
+              type="checkbox"
+              id="persuasion"
+              name="skills"
+              value="persuasion"
+            />
+          </div>
+          <div class="form-group">
+            <label for="prestidigitation">Prestidigitação</label>
+            <input
+              type="checkbox"
+              id="prestidigitation"
+              name="skills"
+              value="prestidigitation"
+            />
+          </div>
+          <div class="form-group">
+            <label for="religion">Religião</label>
+            <input
+              type="checkbox"
+              id="religion"
+              name="skills"
+              value="religion"
+            />
+          </div>
+          <div class="form-group">
+            <label for="survival">Sobrevivência</label>
+            <input
+              type="checkbox"
+              id="survival"
+              name="skills"
+              value="survival"
+            />
+          </div>
+
+          <button type="button" id="save-pericias-btn" class="cta-btn">
+            Salvar Perícias
+          </button>
+          
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2024 Biblioteca Dracônica. Todos os direitos reservados.</p>
+    </footer>
+    <script src="scripts.js" defer></script>
+  </body>
+</html>

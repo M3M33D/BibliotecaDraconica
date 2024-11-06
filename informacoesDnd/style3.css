@@ -1,0 +1,246 @@
+/* Estilos gerais da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #f0f0f5;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #1c1c1e;
+    padding: 20px;
+}
+
+header .logo img {
+    max-width: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+header .navigation {
+    text-align: center;
+    margin-top: 20px;
+}
+
+header .navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+header .navigation li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header .navigation a {
+    color: #f0f0f5;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header .navigation a:hover {
+    color: #dd1616;
+}
+
+header .search-bar {
+    text-align: center;
+    margin-top: 20px;
+}
+
+header .search-bar input {
+    padding: 10px;
+    width: 250px;
+    border: none;
+    border-radius: 8px;
+}
+
+header .search-bar button {
+    background-color: #dd1616;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+header .search-bar button:hover {
+    background-color: #b50450;
+}
+
+header .login .login-btn {
+    background-color: #dd1616;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+header .login .login-btn:hover {
+    background-color: #b50450;
+    transform: scale(1.05);
+}
+
+footer {
+    background-color: #222222;
+    color: #777;
+    text-align: center;
+    padding: 10px;
+    margin-top: 40px;
+}
+
+/* Área de descrição principal */
+.dnd-description {
+    padding: 40px;
+    background-color: #1c1c1e;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin: 40px auto;
+    max-width: 1000px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.dnd-description .section-title {
+    font-size: 3.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #dd1616;
+    text-transform: uppercase;
+    animation: fadeIn 1.5s ease-in-out forwards;
+    opacity: 0;
+}
+
+.dnd-description h2 {
+    color: #dd1616;
+    font-size: 2.5em;
+    margin-top: 20px;
+}
+
+.dnd-description p {
+    text-align: justify;
+    margin: 15px 0;
+}
+
+/* Animação de fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animação de deslizamento para os cards */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Estilos dos cards */
+.card {
+    background-color: #2d2d2f;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateX(-30px); /* Card inicia fora da tela à esquerda */
+}
+
+.card-title {
+    font-size: 2em;
+    color: #dd1616;
+    margin-bottom: 15px;
+}
+
+.card-text {
+    color: #f0f0f5;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Efeitos de hover nos cards */
+.card:hover {
+    transform: translateX(0);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.7s;
+}
+
+.card:nth-child(4) {
+    animation-delay: 0.9s;
+}
+
+.card:nth-child(5) {
+    animation-delay: 1.1s;
+}
+
+/* Botões */
+.action-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.character-creation-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #dd1616;
+    color: #f0f0f5;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.character-creation-btn:hover {
+    background-color: #b50450;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(221, 22, 22, 0.7);
+}
+
+/* Títulos das seções */
+.section-title {
+    font-size: 3.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #dd1616;
+    text-transform: uppercase;
+    animation: fadeIn 1.5s ease-in-out forwards;
+    opacity: 0;
+}
+
+.section-title {
+    animation-delay: 0.3s;
+}
+
+/* Layout de configuração da página */
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}

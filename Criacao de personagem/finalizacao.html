@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criação de Personagens RPG</title>
+    <link rel="stylesheet" href="rpg-character-builder.css" />
+    <link rel="icon" href="/Imagens/logo.png" type="image/png" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <img src="/Imagens/logo.png" alt="Logo" />
+      </div>
+      <nav class="navigation">
+        <ul>
+          <li><a href="/Tela Principal/telaPrincipal.html">Início</a></li>
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="login">
+        <a href="/Login/Login.html" class="login-btn">Login</a>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <aside class="sidebar">
+        <ul>
+          <li><a href="criacao.html">Informações Básicas</a></li>
+          <li><a href="attributes.html">Atributos</a></li>
+          <li><a href="pericias.html">Perícias</a></li>
+          <li><a href="#">Equipamento</a></li>
+          <li><a href="#">Notas</a></li>
+        </ul>
+      </aside>
+      <section class="character-builder">
+        <button type="button" id="save-btn" class="cta-btn">
+          Salvar em arquivo de Texto
+        </button>
+        <br />
+        <br />
+        <button onclick="fillForm()" class="cta-btn">Salvar em PDF</button>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2024 Biblioteca Dracônica. Todos os direitos reservados.</p>
+    </footer>
+    <script src="scripts.js"></script>
+
+    <script>
+      var josia = localStorage.getItem("characterClass");
+      console.log(josia);
+      console.log(localStorage.getItem("characterRace"));
+      var subclass = localStorage.getItem("");
+      console.log(subclass);
+      const { PDFDocument } = PDFLib;
+      /*   const level = localStorage.getItem("characterLevel");
+                        const characterClass = localStorage.getItem("characterClass");
+                        const characterClass2 = localStorage.getItem("characterClass2");
+                    */
+
+      var idiomas = [
+        {
+          nome: "Anão",
+          tipo: "padrão",
+        },
+        {
+          nome: "Comum",
+          tipo: "padrão",
+        },
+        {
+          nome: "Élfico",
+          tipo: "padrão",
+        },
+        {
+          nome: "Gigante",
+          tipo: "padrão",
+        },
+        {
+          nome: "Gnômico",
+          tipo: "padrão",
+        },
+        {
+          nome: "Goblin",
+          tipo: "padrão",
+        },
+        {
+          nome: "Halfling",
+          tipo: "padrão",
+        },
+        {
+          nome: "Orc",
+          tipo: "padrão",
+        },
+        {
+          nome: "Abissal",
+          tipo: "Exótico",
+        },
+        {
+          nome: "Celestial",
+          tipo: "Exótico",
+        },
+        {
+          nome: "Dialeto Subterrâneo",
+          tipo: "Exótico",
+        },
+        {
+          nome: "Dracônico",
+          tipo: "Exótico",
+        },
+        {
+          nome: "Infernal",
+          tipo: "Exótico",
+        },
+        {
+          nome: "Primordial",
+          tipo: "Exótico",
+        },
+        {
+          nome: "Silvestre",
+          tipo: "Exótico",
+        },
+        {
+          nome: "Subcomum",
+          tipo: "Exótico",
+        },
+      ];
+
+      var idiomaQuant = 0;
+
+      var passado = [
+        {
+          /* 0 */ nome: "Acólita",
+          skill: "Abrigo dos fiéis",
+          Equipamento:
+            "Um símbolo sagrado (um presente dado quando você entrou no templo), um livro de preces ou uma conta de orações, 5 varetas de incenso,vestimentas, um conjunto de roupas comuns e umaalgibeira contendo 15 po",
+        },
+        {
+          /* 1 */ nome: "Charlatão",
+          skill: "Identidade falsa",
+          Equipamento:
+            "Um conjunto de roupas finas, um kit de disfarce, ferramentas de trapaça, à sua escolha (dez garrafas tampadas preenchidas com líquidos coloridos, um conjunto de dados viciados, um baralho de cartas marcadas ou um anel de sinete de um duque imaginário), e uma algibeira contendo 15po",
+        },
+        {
+          /* 2 */ nome: "Criminoso",
+          skill: "Contato criminoso",
+          Equipamento:
+            "Um pé de cabra, um conjunto de roupas escuras comuns com capuz e uma algibeira contendo 15 po",
+        },
+        {
+          /* 3 */ nome: "Artista",
+          skill: "Por demanda popular",
+          Equipamento:
+            "Um instrumento musical (à sua escolha), um presente de um admirador (carta de amor, mecha de cabelo ou uma bijuteria), um traje e uma algibeiracontendo 15 po",
+        },
+        {
+          /* 4 */ nome: "Herói do Povo",
+          skill: "Hospitalidade rústica",
+          Equipamento:
+            "Um conjunto de ferramentas de artesão (à sua escolha), uma pá, um pote de ferro, um conjunto de roupas comuns e uma algibeira contendo 10 po",
+        },
+        {
+          /* 5 */ nome: "Gladiador",
+          skill: "Por demanda popular",
+          Equipamento:
+            "Um instrumento musical (à sua escolha), um presente de um admirador (carta de amor, mecha de cabelo ou uma bijuteria), um traje e uma algibeiracontendo 15 po",
+        },
+        {
+          /* 6 */ nome: "Artesão de Guilda",
+          skill: "Membro da guilda",
+          Equipamento:
+            "Um conjunto de ferramentas de artesão (à sua escolha), uma carta de apresentação da sua guilda, um conjunto de roupas de viajante e uma algibeira com 15 po",
+        },
+        {
+          /* 7 */ nome: "Mercador de Guilda",
+          skill: "Membro da guilda",
+          Equipamento:
+            "Um conjunto de ferramentas de artesão (à sua escolha), uma carta de apresentação da sua guilda, um conjunto de roupas de viajante e uma algibeira com 15 po",
+        },
+        {
+          /* 8 */ nome: "Eremita",
+          skill: "Descoberta",
+          Equipamento:
+            "Um estojo de pergaminho cheio de notas dos seus estudos e orações, um cobertor de inverno, um conjunto de roupas comuns, um kit de herbalismo e 5 po",
+        },
+        {
+          /* 9 */ nome: "Nobre",
+          skill: "Posição de privilégio",
+          Equipamento:
+            "Um conjunto de trajes finos, um anel de sinete, um pergaminho de linhagem e uma algibeira contendo 25 po",
+        },
+        {
+          /* 9 */ nome: "Cavaleiro",
+          skill: "Retentores",
+          Equipamento:
+            "Um conjunto de trajes finos, um anel de sinete, um pergaminho de linhagem e uma algibeira contendo 25 po",
+        },
+        {
+          /* 10 */ nome: "Forasteiro",
+          skill: "Viajante",
+          Equipamento:
+            "Um bordão, uma armadilha de caça, um fetiche de um animal que você matou, um conjunto de roupas de viajante e uma algibeira contendo 10 po",
+        },
+        {
+          /* 11 */ nome: "Pirata",
+          skill: "Má reputação",
+          Equipamento:
+            "Uma malagueta (clava), 15 metros de corda de seda, uma amuleto da sorte como um pé de coelho ou uma pequena pedra com um furo no centro(ou você pode rolar uma bugiganga da tabela Bugigangas no capítulo 5), um conjunto de trajes comuns e uma algibeira contendo 10 po",
+        },
+        {
+          /* 12 */ nome: "Sábio",
+          skill: "Pesquisador",
+          Equipamento:
+            "Um vidro de tinta escura, uma pena, uma faca pequena, uma carta de um falecido colega perguntando a você algo que você nunca terá a chance de responder, um conjunto de roupas comuns e uma algibeira contendo 10 po",
+        },
+        {
+          /* 13 */ nome: "Marinheiro",
+          skill: "Passagem de navio",
+          Equipamento:
+            "Uma malagueta (clava), 15 metros de corda de seda, uma amuleto da sorte como um pé de coelho ou uma pequena pedra com um furo no centro(ou você pode rolar uma bugiganga da tabela Bugigangas no capítulo 5), um conjunto de trajes comuns e uma algibeira contendo 10 po",
+        },
+        {
+          /* 14 */ nome: "Soldado",
+          skill: "Patente militar",
+          Equipamento:
+            "Uma insígnia de patente, um fetiche obtido de um inimigo caído (uma adaga, lâmina  partida ou tira de estandarte), um conjunto de dados de osso ou baralho, um conjunto de roupas comuns e uma algibeira contendo 10 po",
+        },
+        {
+          /* 15 */ nome: "Espião",
+          skill: "Contato espião",
+          Equipamento:
+            "Um pé de cabra, um conjunto de roupas escuras comuns com capuz e uma algibeira contendo 15 po",
+        },
+        {
+          /* 16 */ nome: "Orfão",
+          skill: "Segredos da cidade",
+          Equipamento:
+            "Uma faca pequena, um mapa da cidade em que você cresceu, um rato de estimação, um pequeno objeto para lembrar dos seus pais, um conjunto de roupas comuns e uma algibeira contendo 10 po",
+        },
+      ];
+      const passadoSelecionado =
+        passado[localStorage.getItem("characterBackground")];
+      if (
+        passadoSelecionado.nome === "Acólita" ||
+        passadoSelecionado.nome === "Sábio"
+      ) {
+        idiomaQuant = idiomaQuant + 2;
+      } else if (
+        passadoSelecionado.nome === "Artesão da guilda" ||
+        passadoSelecionado.nome === "Mercador da guilda" ||
+        passadoSelecionado.nome === "Eremita" ||
+        passadoSelecionado.nome === "Forasteiro" ||
+        passadoSelecionado.nome === "Nobre" ||
+        passadoSelecionado.nome === "Cavaleiro"
+      ) {
+        idiomaQuant = idiomaQuant + 1;
+      }
+
+      //mudando o valor pra algo acima de zero adiciona um nível na classe
+      var lvlBarb = 0;
+      var lvlBard = 0;
+      var lvlBrux = 0;
+      var lvlCler = 0;
+      var lvlCaca = 0;
+      var lvlMago = 0;
+      var lvlMong = 0;
+      var lvlLadi = 0;
+      var lvlPala = 0;
+      var lvlGuer = 0;
+      var lvlDrui = 0;
+      var lvlFeit = 0;
+
+      var nvl = Number(localStorage.getItem("characterLevel"));
+      var classe = localStorage.getItem("characterClass");
+      if (classe === "guerreiro") {
+        lvlGuer = nvl;
+        console.log(lvlGuer);
+      } else {
+        if (classe === "mago") {
+          lvlMago = nvl;
+          console.log(lvlMago);
+        } else {
+          if (classe === "ladrão") {
+            lvlLadi = nvl;
+            console.log(lvlLadi);
+          } else {
+            if (classe === "clérigo") {
+              lvlCler = nvl;
+              console.log(lvlCler);
+            } else {
+              if (classe === "bárbaro") {
+                lvlBarb = nvl;
+                console.log(lvlBarb);
+              } else {
+                if (classe === "feiticeiro") {
+                  lvlFeit = nvl;
+                  console.log(lvlFeit);
+                } else {
+                  if (classe === "paladino") {
+                    lvlPala = nvl;
+                    console.log(lvlPala);
+                  } else {
+                    if (classe === "druida") {
+                      lvlDrui = nvl;
+                      console.log(lvlDrui);
+                    } else {
+                      if (classe === "monge") {
+                        lvlMong = nvl;
+                        console.log(lvlMong);
+                      } else {
+                        if (classe === "caçador") {
+                          lvlCaca = nvl;
+                          console.log(lvlCaca);
+                        } else {
+                          if (classe === "bardo") {
+                            lvlBard = nvl;
+                            console.log(lvlBard);
+                          } else {
+                            if (classe === "bruxo") {
+                              lvlBrux = nvl;
+                              console.log(lvlBrux);
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      //o lvl total é usado pra definir o bônus de proficiencia e adicionando o valor na var prof
+      var lvlTotal =
+        lvlBarb +
+        lvlBard +
+        lvlBrux +
+        lvlCaca +
+        lvlCler +
+        lvlDrui +
+        lvlFeit +
+        lvlGuer +
+        lvlLadi +
+        lvlMago +
+        lvlMong +
+        lvlPala;
+
+      console.log(`O lvlTotal é ${lvlTotal}`);
+      var prof;
+      if (lvlTotal < 5) {
+        prof = 2;
+      } else if (lvlTotal < 9) {
+        prof = 3;
+      } else if (lvlTotal < 12) {
+        prof = 4;
+      } else if (lvlTotal < 17) {
+        prof = 5;
+      } else if (lvlTotal < 20) {
+        prof = 6;
+      } else {
+        alert("Nível de personagem invalido");
+      }
+
+      var Armaduras = [
+        { /* 0 */ nome: "Nenhuma", tipo: "Nenhum", AC: 10 },
+        { /* 1 */ nome: "Couro", tipo: "Leve", AC: 11 },
+        { /* 2 */ nome: "Peles", tipo: "Media", AC: 12 },
+        { /* 3 */ nome: "Couraça", tipo: "Leve", AC: 14 },
+        { /* 4 */ nome: "Camisa de corrente", tipo: "Media", AC: 13 },
+        { /* 5 */ nome: "Cota de malha", tipo: "Pesada", AC: 16 },
+        { /* 6 */ nome: "Placa", tipo: "Pesada", AC: 18 },
+        { /* 7 */ nome: "Meia placa", tipo: "Media", AC: 15 },
+        { /* 8 */ nome: "Cota de Anéis", tipo: "Pesada", AC: 14 },
+        { /* 9 */ nome: "Alcochoada", tipo: "Leve", AC: 11 },
+        { /* 10 */ nome: "Tala", tipo: "Pesada", AC: 17 },
+        { /* 11 */ nome: "Escamas", tipo: "Media", AC: 14 },
+        { /* 12 */ nome: "Couro cravejado", tipo: "Leve", AC: 12 },
+      ];
+      let ArmaduraSelecionadaIndex = 0;
+      let ArmaduraSelecionada = Armaduras[ArmaduraSelecionadaIndex];
+
+      var alinhamento = [
+        /* 0 */ "Leal e Bom",
+        /* 1 */ "Neutro e Bom",
+        /* 2 */ "Caótico e Bom",
+        /* 3 */ "Leal e Neutro",
+        /* 4 */ "Neutro",
+        /* 5 */ "Caótico e Neutro",
+        /* 6 */ "Leal e Mal",
+        /* 7 */ "Neutro e Mal",
+        /* 8 */ "Caótico e Mal",
+      ];
+      var raca = [
+        {
+          /* 0*/ racaNome: "Draconato",
+          Speed: "30ft/9m",
+          skills: "Ancestralidade Dracônica, Arma de sopro, Resistência a dano",
+          idiomas: `${idiomas[12].nome}, ${idiomas[1].nome}`,
+        },
+        {
+          /* 1*/ racaNome: "Anão de montanha",
+          Speed: "25ft/7,5m",
+          skills:
+            "Visão no escuro, Resiliencia Anã, Treinamento de armas de combate anão, proficiência em ferramenta, astúcia com pedras, Treinamento de armadura anã",
+          idiomas: `${idiomas[8].nome}, ${idiomas[1].nome}`,
+        },
+        {
+          /* 2*/ racaNome: "Anão de morro",
+          Speed: "25ft/7,5m",
+          skills:
+            "Visão no escuro, Resiliencia Anã, Treinamento de armas de combate anão, proficiência em ferramenta, astúcia com pedras, Dureza dos Anões",
+          idiomas: `${idiomas[8].nome}, ${idiomas[1].nome}`,
+        },
+        {
+          /* 3*/ racaNome: "Alto elfo",
+          Speed: "30ft/9m",
+          skills:
+            "Visão no escuro, Sentidos aguçados, Ancestralidade Feérica, Trance, Treinamento élfico com armas, Truque",
+          idiomas: `${idiomas[2].nome}, ${idiomas[1].nome}`,
+        },
+        {
+          /* 4*/ racaNome: "Elfo da floresta",
+          Speed: "30ft/9m",
+          skills:
+            "Visão no escuro, Sentidos aguçados, Ancestralidade Feérica, Trance, Treinamento élfico com armas, Pés ligeiros, Máscara da natureza",
+          idiomas: `${idiomas[2].nome}, ${idiomas[1].nome}`,
+        },
+        {
+          /* 5*/ racaNome: "Drow",
+          Speed: "30ft/9m",
+          skills:
+            "Visão no escuro avançada, Sentidos aguçados, Ancestralidade Feérica, Trance, Sensibilidade a luz solar, Magia drow, Treinamento drow com armas ",
+          idiomas: `${idiomas[2].nome}, ${idiomas[1].nome}`,
+        },
+        {
+          /* 6*/ racaNome: "Gnomo da floresta",
+          Speed: "25ft/7,5m",
+          skills:
+            "Visão no escuro, Astúcia de gnomo, Ilusionista nato, Falar com bestas pequenas",
+          idiomas: `${idiomas[4].nome}, ${idiomas[1].nome}`,
+        },
+        {
+          /* 7*/ racaNome: "Gnomo das rochas",
+          Speed: "25ft/7,5m",
+          skills:
+            "Visão no escuro, Astúcia de gnomo, Conhecimento de artífice, Engenhoqueiro",
+          idiomas: `${idiomas[4].nome}, ${idiomas[1].nome}`,
+        },
+        {
+          /* 8*/ racaNome: "Meio-Elfo",
+          Speed: "30ft/9m",
+          skills:
+            "Visão no escuro, Ancestralidade Feérica, Versatilidade em habilidade ",
+          idiomas: `${idiomas[2].nome}, ${idiomas[1].nome}`,
+        },
+        {
+          /* 9*/ racaNome: "Meio-Orc",
+          Speed: "30ft/9m",
+          skills:
+            "Visão no escuro, Ameaçador, Resistência incessante, Ataques selvagens",
+          idiomas: `${idiomas[7].nome}, ${idiomas[1].nome}`,
+        },
+        {
+          /* 10*/ racaNome: "Halfling pé leve",
+          Speed: "25ft/7,5m",
+          skills: "Sortudo, Bravura, Agilidade halfling, Furtividade natural",
+          idiomas: `${idiomas[6].nome}, ${idiomas[1].nome}`,
+        },
+        {
+          /* 11*/ racaNome: "Halfling robusto",
+          Speed: "25ft/7,5m",
+          skills:
+            "Sortudo, Bravura, Agilidade halfling, Resiliência dos robustos",
+          idiomas: `${idiomas[6].nome}, ${idiomas[1].nome}`,
+        },
+        {
+          /* 12*/ racaNome: "Humano",
+          Speed: "30ft/9m",
+          skills: "",
+          idiomas: `${idiomas[1].nome}`,
+        },
+        {
+          /* 13*/ racaNome: "Tiefling",
+          Speed: "30ft/9m",
+          skills: "Visão no escuro, Resistência infernal, Legado infernal",
+          idiomas: `${idiomas[13].nome}, ${idiomas[1].nome}`,
+        },
+      ];
+      var racaSelecionada;
+      console.log(localStorage.getItem("characterRace"));
+      var subRaca = localStorage.getItem("characterSubRace");
+      if (subRaca === "none") {
+        racaSelecionada = raca[localStorage.getItem("characterRace")];
+      } else {
+        racaSelecionada = raca[localStorage.getItem("characterSubRace")];
+      }
+      async function fillForm() {
+        // Fetch the PDF with form fields
+        const formUrl = "dndFicha.pdf";
+        const formPdfBytes = await fetch(formUrl).then((res) =>
+          res.arrayBuffer()
+        );
+        const pdfDoc = await PDFLib.PDFDocument.load(formPdfBytes);
+
+        const form = pdfDoc.getForm();
+
+        //começo da função, as linhas a linha 96 é a que define que pdf será usado
+
+        //o pfd é lido como a const form, as linhas com .getTextField pegam um
+        //elemento do pdf com base no nome dele
+
+        const nameField = form.getTextField("CharacterName");
+        const acField = form.getTextField("AC");
+        const raceField = form.getTextField("Race ");
+        var levelField = form.getTextField("ClassLevel");
+        const BackgroundField = form.getTextField("Background");
+        const alignmentField = form.getTextField("Alignment");
+        const playerName = form.getTextField("PlayerName");
+        const Xp = form.getTextField("XP");
+
+        const hitDieRestante = form.getTextField("HD");
+        const hitDieTotal = form.getTextField("HDTotal");
+
+        var str_value = Number(localStorage.getItem("characterStrength"));
+        const Str = form.getTextField("STR");
+        var dex_value = Number(localStorage.getItem("characterDexterity"));
+        const Dex = form.getTextField("DEX");
+        var con_value = Number(localStorage.getItem("characterConstitution"));
+        const Con = form.getTextField("CON");
+        var int_value = Number(localStorage.getItem("characterIntelligence"));
+        const Int = form.getTextField("INT");
+        var wis_value = Number(localStorage.getItem("characterWisdom"));
+        const Wis = form.getTextField("WIS");
+        var cha_value = Number(localStorage.getItem("characterCharisma"));
+        const Cha = form.getTextField("CHA");
+
+        var checkboxFor = form.getCheckBox("Check Box 11");
+        var checkboxDes = form.getCheckBox("Check Box 18");
+        var checkboxCon = form.getCheckBox("Check Box 19");
+        var checkboxInt = form.getCheckBox("Check Box 20");
+        var checkboxWis = form.getCheckBox("Check Box 21");
+        var checkboxCha = form.getCheckBox("Check Box 22");
+
+        const StrMod = form.getTextField("STRmod");
+        const DexMod = form.getTextField("DEXmod ");
+        const ConMod = form.getTextField("CONmod");
+        const IntMod = form.getTextField("INTmod");
+        const WisMod = form.getTextField("WISmod");
+        const ChaMod = form.getTextField("CHamod");
+
+        const strProf = form.getTextField("ST Strength");
+        const dexProf = form.getTextField("ST Dexterity");
+        const conProf = form.getTextField("ST Constitution");
+        const intProf = form.getTextField("ST Intelligence");
+        const wisProf = form.getTextField("ST Wisdom");
+        const chaProf = form.getTextField("ST Charisma");
+
+        const Initiative = form.getTextField("Initiative");
+        const inspiration = form.getTextField("Inspiration");
+        const ProfBonus = form.getTextField("ProfBonus");
+        const Speed = form.getTextField("Speed");
+        const Passive = form.getTextField("Passive");
+
+        const Acrobacia = form.getTextField("Acrobatics");
+        const Arcana = form.getTextField("Animal");
+        const Atletismo = form.getTextField("Arcana");
+        const Atuacao = form.getTextField("Athletics");
+        const Blefar = form.getTextField("Deception ");
+        const Furtividade = form.getTextField("History ");
+        const Historia = form.getTextField("Insight");
+        const Intimidacao = form.getTextField("Intimidation");
+        const Intuicao = form.getTextField("Investigation ");
+        const Investigacao = form.getTextField("Medicine");
+        const Animais = form.getTextField("Nature");
+        const Medicina = form.getTextField("Perception ");
+        const Natureza = form.getTextField("Performance");
+        const Percepcao = form.getTextField("Persuasion");
+        const Persuasao = form.getTextField("Religion");
+        const SleightOfHand = form.getTextField("SleightofHand");
+        const Religiao = form.getTextField("Stealth ");
+        const Sobrevivencia = form.getTextField("Survival");
+
+        var AcrobaciaCheckbox = form.getCheckBox("Check Box 23");
+        var ArcanaCheckbox = form.getCheckBox("Check Box 24");
+        var AtletismoCheckbox = form.getCheckBox("Check Box 25");
+        var AtuacaoCheckox = form.getCheckBox("Check Box 26");
+        var BlefarCheckbox = form.getCheckBox("Check Box 27");
+        var FurtividadeCheckbox = form.getCheckBox("Check Box 28");
+        var HistoriaCheckbox = form.getCheckBox("Check Box 29");
+        var IntimidacaoCheckbox = form.getCheckBox("Check Box 30");
+        var IntuicaoCheckbox = form.getCheckBox("Check Box 31");
+        var InvestigacaoCheckbox = form.getCheckBox("Check Box 32");
+        var AnimaisCheckbox = form.getCheckBox("Check Box 33");
+        var MedicinaCheckbox = form.getCheckBox("Check Box 34");
+        var NaturezaCheckbox = form.getCheckBox("Check Box 35");
+        var percepcaoCheckbox = form.getCheckBox("Check Box 36");
+        var PersuasaoCheckbox = form.getCheckBox("Check Box 37");
+        var SleightOfHandCheckbox = form.getCheckBox("Check Box 38");
+        var ReligiaoCheckbox = form.getCheckBox("Check Box 39");
+        var SobrevivenciaCheckbox = form.getCheckBox("Check Box 40");
+
+        const ageField = form.getTextField("Age");
+        const heightField = form.getTextField("Height");
+        const weightField = form.getTextField("Weight");
+        const eyesField = form.getTextField("Eyes");
+        const skinField = form.getTextField("Skin");
+        const hairField = form.getTextField("Hair");
+        const alliesField = form.getTextField("Allies");
+        const factionField = form.getTextField("FactionName");
+        const backstoryField = form.getTextField("Backstory");
+        const traitsField = form.getTextField("Feat+Traits");
+        const treasureField = form.getTextField("Treasure");
+
+        var equipamentos = form.getTextField("Equipment");
+        const LinguasEOutrasProfs = form.getTextField("ProficienciesLang");
+        const CaracteristicasEFeitos = form.getTextField("Features and Traits");
+        const classeConjurador = form.getTextField("Spellcasting Class 2");
+        const ModDeSpell = form.getTextField("SpellcastingAbility 2");
+        const CDdeSpell = form.getTextField("SpellSaveDC  2");
+        const BonusDeAtkDeSpell = form.getTextField("SpellAtkBonus 2");
+        //as linhas com setText mudam o conteudo dentro dos elementos, só pode adicionar
+        //no formato string
+        //as classes são colocadas nesses arrays, com seu nome, o nível total nela
+        // o dado de hp, e as proficiencias de teste de resistencia
+
+        const levels = [
+          {
+            name: "Bárbaro",
+            value: lvlBarb,
+            hitDie: "12",
+            proficiencia1: "str",
+            proficiencia2: "con",
+            equipamentoBase: "Um pacote de aventureiro e quatro azagaias",
+            equipametoInicialOpção1: [
+              { a: "Um machado grande" },
+              { a: "qualquer arma marcial corpo-a-corpo" },
+            ],
+            equipametoInicialOpção2: [
+              { a: "dois machados de mão" },
+              { a: "qualquer arma simples" },
+            ],
+            equipametoInicialOpção3: [{ a: "" }],
+            equipametoInicialOpção4: [{ a: "" }],
+          },
+          {
+            name: "Bardo",
+            value: lvlBard,
+            hitDie: "8",
+            proficiencia1: "dex",
+            proficiencia2: "cha",
+            equipamentoBase: "Armadura de couro e uma adaga",
+            equipametoInicialOpção1: [
+              { a: "uma rapieira" },
+              { a: "espada longa" },
+              { a: "qualquer arma simples" },
+            ],
+            equipametoInicialOpção2: [
+              { a: "um pacote de diplomata" },
+              { a: "um pacote de artista" },
+            ],
+
+            equipametoInicialOpção3: [
+              { a: "um lute" },
+              { a: "qualquer outro instrumento musical" },
+            ],
+
+            equipametoInicialOpção4: [{ a: "" }],
+          },
+          {
+            name: "Bruxo",
+            value: lvlBrux,
+            hitDie: "8",
+            proficiencia1: "wis",
+            proficiencia2: "cha",
+            equipamentoBase:
+              "Armadura de couro, qualquer arma simples e duas adagas",
+            equipametoInicialOpção1: [
+              { a: "uma besta leve e 20 virotes" },
+              { a: "qualquer arma simples" },
+            ],
+            equipametoInicialOpção2: [
+              { a: "uma bolsa de componentes" },
+              { a: "um foco arcano" },
+            ],
+            equipametoInicialOpção3: [
+              { a: "um pacote de estudioso " },
+              { a: "pacote de explorador" },
+            ],
+
+            equipametoInicialOpção4: [{ a: "" }],
+          },
+          {
+            name: "Clérigo",
+            value: lvlCler,
+            hitDie: "8",
+            proficiencia1: "wis",
+            proficiencia2: "cha",
+            equipamentoBase: "Um escudo e um símbolo sagrado",
+            equipametoInicialOpção1: [
+              { a: "uma maça" },
+              { a: "um martelo de guerra (se for proficiente)" },
+            ],
+            equipametoInicialOpção2: [
+              { a: " brunea" },
+              { a: "armadura de couro" },
+              { a: " cota de malha (se for proficiente)" },
+            ],
+            equipametoInicialOpção3: [
+              { a: "um besta leve e 20 virotes" },
+              { a: "qualquer arma simples" },
+            ],
+            equipametoInicialOpção4: [
+              { a: "um pacote de sacerdote" },
+              { a: "um pacote de aventureiro" },
+            ],
+          },
+          {
+            name: "Caçador",
+            value: lvlCaca,
+            hitDie: "10",
+            proficiencia1: "str",
+            proficiencia2: "dex",
+            equipamentoBase: "Um arco longo e uma aljava com 20 flechas",
+
+            equipametoInicialOpção1: [
+              { a: "brunea" },
+              { a: "armadura de couro" },
+            ],
+            equipametoInicialOpção2: [
+              { a: "duas espadas curtas" },
+              { a: "duas armas simples corpo-a-corpo" },
+            ],
+            equipametoInicialOpção3: [
+              { a: "um pacote de explorador" },
+              { a: "um pacote de aventureiro" },
+            ],
+
+            equipametoInicialOpção4: [{ a: "" }],
+          },
+          {
+            name: "Mago",
+            value: lvlMago,
+            hitDie: "6",
+            proficiencia1: "int",
+            proficiencia2: "wis",
+            equipamentoBase: "um grimório",
+            equipametoInicialOpção1: [{ a: "um bordão" }, { a: "uma adaga" }],
+            equipametoInicialOpção2: [
+              { a: "uma bolsa de componentes" },
+              { a: "um foco arcano" },
+            ],
+            equipametoInicialOpção3: [
+              { a: "um pacote de estudioso" },
+              { a: "pacote de explorador" },
+            ],
+
+            equipametoInicialOpção4: [{ a: "" }],
+          },
+          {
+            name: "Monge",
+            value: lvlMong,
+            hitDie: "8",
+            proficiencia1: "str",
+            proficiencia2: "dex",
+            equipamentoBase: "10 dardos",
+
+            equipametoInicialOpção1: [
+              { a: "uma espada curta" },
+              { a: "qualquer arma simples" },
+            ],
+            equipametoInicialOpção2: [
+              { a: "um pacote de explorador" },
+              { a: " um pacote de aventureiro" },
+            ],
+            equipametoInicialOpção3: [{ a: "" }],
+            equipametoInicialOpção4: [{ a: "" }],
+          },
+
+          {
+            name: "Ladino",
+            value: lvlLadi,
+            hitDie: "8",
+            proficiencia1: "dex",
+            proficiencia2: "int",
+            equipamentoBase:
+              "Armadura de couro, duas adagas e ferramentas de ladrão",
+
+            equipametoInicialOpção1: [
+              { a: "uma rapieira" },
+              { a: "uma espada longa" },
+            ],
+            equipametoInicialOpção2: [
+              { a: "um arco curto e uma aljava com 20 flechas" },
+              { a: "uma espada curta" },
+            ],
+            equipametoInicialOpção3: [
+              { a: "um pacote de assaltante" },
+              { a: "um pacote de aventureiro" },
+              { a: "um pacote de explorador" },
+            ],
+            equipametoInicialOpção4: [{ a: "" }],
+          },
+          {
+            name: "Paladino",
+            value: lvlPala,
+            hitDie: "10",
+            proficiencia1: "wis",
+            proficiencia2: "cha",
+            equipamentoBase: "Cota de malha e um símbolo sagrado",
+
+            equipametoInicialOpção1: [
+              { a: "uma arma marcial e um escudo" },
+              { a: "duas armas marciais" },
+            ],
+            equipametoInicialOpção2: [
+              { a: "cinco azagaias" },
+              { a: "qualquer arma simples corpo-a-corpo" },
+            ],
+            equipametoInicialOpção3: [
+              { a: "um pacote de sacerdote" },
+              { a: " um pacote de aventureiro" },
+            ],
+            equipametoInicialOpção4: [{ a: "" }],
+          },
+          {
+            name: "Guerreiro",
+            value: lvlGuer,
+            hitDie: "10",
+            proficiencia1: "str",
+            proficiencia2: "con",
+            equipamentoBase: "",
+
+            equipametoInicialOpção1: [
+              { a: "cota de malha" },
+              { a: "gibão de peles, arco longo e 20 flechas" },
+            ],
+            equipametoInicialOpção2: [
+              { a: "uma arma marcial e um escudo" },
+              { a: "duas armas marciais" },
+            ],
+            equipametoInicialOpção3: [
+              { a: "uma besta leve e 20 virotes" },
+              { a: "dois machados de arremesso" },
+            ],
+            equipametoInicialOpção4: [
+              { a: "um pacote de aventureiro" },
+              { a: "um pacote de explorador" },
+            ],
+          },
+          {
+            name: "Druida",
+            value: lvlDrui,
+            hitDie: "8",
+            proficiencia1: "int",
+            proficiencia2: "wis",
+            equipamentoBase:
+              "Armadura de couro, um pacote de aventureiro e um foco druídico",
+
+            equipametoInicialOpção1: [
+              { a: "um escudo de madeira" },
+              { a: "qualquer arma simples" },
+            ],
+            equipametoInicialOpção2: [
+              { a: "uma cimitarra" },
+              { a: " qualquer arma corpo-a-corpo simples" },
+            ],
+            equipametoInicialOpção3: [
+              { a: "um pacote de estudioso" },
+              { a: "um pacote de explorador" },
+            ],
+            equipametoInicialOpção4: [{ a: "" }],
+          },
+          {
+            name: "Feiticeiro",
+            value: lvlFeit,
+            hitDie: "6",
+            proficiencia1: "con",
+            proficiencia2: "cha",
+            equipamentoBase: "",
+
+            equipametoInicialOpção1: [
+              { a: "uma besta leve e 20 virotes" },
+              { a: " qualquer arma simples" },
+            ],
+            equipametoInicialOpção2: [
+              { a: "uma bolsa de componentes" },
+              { a: "um foco arcano" },
+            ],
+            equipametoInicialOpção3: [
+              { a: "um pacote de explorador" },
+              { a: "um pacote de aventureiro" },
+            ],
+            equipametoInicialOpção4: [{ a: "" }],
+          },
+        ];
+        //nas linhas a seguir, os valores dos levels são lidos, filtrados e
+        //adicionados de acordo com sua necessidade, como para definir CA
+        //e outros atributos
+        var classeSelecionada = levels
+          .filter((level) => level.value > 0)
+          .map((level) => `${level.name} `)
+          .join("");
+
+        levelField.setText(
+          levels
+            .filter((level) => level.value > 0)
+            .map((level) => `${level.name} ${level.value} `)
+            .join("\n")
+        );
+        hitDieRestante.setText(
+          levels
+            .filter((level) => level.value > 0)
+            .map((level) => `d${level.hitDie} `)
+            .join("\n")
+        );
+
+        hitDieTotal.setText(
+          levels
+            .filter((level) => level.value > 0)
+            .map((level) => `${level.value}d${level.hitDie} `)
+            .join("\n")
+        );
+        console.log(str_value);
+        raceField.setText(racaSelecionada.racaNome);
+        if (racaSelecionada.racaNome === "Draconato") {
+          str_value = str_value + 2;
+          cha_value = cha_value + 1;
+        } else if (racaSelecionada.racaNome === "Anão de morro") {
+          con_value = con_value + 2;
+          wis_value = wis_value + 1;
+        } else if (racaSelecionada.racaNome === "Anão de montanha") {
+          con_value = con_value + 2;
+          str_value = str_value + 2;
+        } else if (racaSelecionada.racaNome === "Elfo da floresta") {
+          dex_value = dex_value + 2;
+          wis_value = wis_value + 1;
+        } else if (racaSelecionada.racaNome === "Alto elfo") {
+          dex_value = dex_value + 2;
+          int_value = int_value + 1;
+        } else if (racaSelecionada.racaNome === "Drow") {
+          dex_value = dex_value + 2;
+          cha_value = cha_value + 1;
+        } else if (racaSelecionada.racaNome === "Gnomo da floresta") {
+          int_value = int_value + 2;
+          dex_value = dex_value + 1;
+        } else if (racaSelecionada.racaNome === "Gnomo das rochas") {
+          int_value = int_value + 2;
+          con_value = cha_value + 1;
+        } else if (racaSelecionada.racaNome === "Meio-Elfo") {
+          var statusSelecionado1 = "Destreza";
+          var statusSelecionado2 = "Inteligência";
+
+          if (statusSelecionado1 === "Força") {
+            str_value = str_value + 1;
+          } else if (statusSelecionado1 === "Destreza") {
+            dex_value = dex_value + 1;
+          } else if (statusSelecionado1 === "Constituição") {
+            con_value = con_value + 1;
+          } else if (statusSelecionado1 === "inteligência") {
+            int_value = int_value + 1;
+          } else if (statusSelecionado1 === "Sabedoria") {
+            wis_value = wis_value + 1;
+          } else if (statusSelecionado1 === "Carisma") {
+            cha_value = cha_value + 1;
+          }
+          if (statusSelecionado2 === "Força") {
+            str_value = str_value + 1;
+          } else if (statusSelecionado2 === "Destreza") {
+            dex_value = dex_value + 1;
+          } else if (statusSelecionado2 === "Constituição") {
+            con_value = con_value + 1;
+          } else if (statusSelecionado2 === "inteligência") {
+            int_value = int_value + 1;
+          } else if (statusSelecionado2 === "Sabedoria") {
+            wis_value = wis_value + 1;
+          } else if (statusSelecionado2 === "Carisma") {
+            cha_value = cha_value + 1;
+          }
+          cha_value = cha_value + 2;
+        } else if (racaSelecionada.racaNome === "Meio-Orc") {
+          str_value = str_value + 2;
+          con_value = con_value + 1;
+        } else if (racaSelecionada.racaNome === "Halfing pé leve") {
+          dex_value = dex_value + 2;
+          cha_value = cha_value + 1;
+        } else if (racaSelecionada.racaNome === "Halfing robusto") {
+          dex_value = dex_value + 2;
+          con_value = con_value + 1;
+        } else if (racaSelecionada.racaNome === "Humano") {
+          str_value = str_value + 1;
+          dex_value = dex_value + 1;
+          con_value = con_value + 1;
+          int_value = int_value + 1;
+          wis_value = wis_value + 1;
+          cha_value = cha_value + 1;
+        } else if (racaSelecionada.racaNome === "Tiefling") {
+          int_value = int_value + 1;
+          cha_value = cha_value + 2;
+        }
+
+        BackgroundField.setText(passadoSelecionado.nome);
+        alignmentField.setText(alinhamento[4]);
+
+        Xp.setText("Milestone");
+
+        console.log(str_value);
+
+        Str.setText(str_value.toString());
+        Dex.setText(dex_value.toString());
+        Con.setText(con_value.toString());
+        Int.setText(int_value.toString());
+        Wis.setText(wis_value.toString());
+        Cha.setText(cha_value.toString());
+
+        // o pedaço a seguir pega o valor das habilidades e transforma ele no bônus
+
+        var str_bonus = Math.floor((str_value - 10) / 2);
+        var dex_bonus = Math.floor((dex_value - 10) / 2);
+        var con_bonus = Math.floor((con_value - 10) / 2);
+        var int_bonus = Math.floor((int_value - 10) / 2);
+        var wis_bonus = Math.floor((wis_value - 10) / 2);
+        var cha_bonus = Math.floor((cha_value - 10) / 2);
+
+        if (str_bonus > 0) {
+          StrMod.setText("+" + str_bonus.toString());
+          strProf.setText("+" + str_bonus.toString());
+        } else {
+          StrMod.setText(str_bonus.toString());
+          strProf.setText(str_bonus.toString());
+        }
+        if (dex_bonus > 0) {
+          DexMod.setText("+" + dex_bonus.toString());
+          dexProf.setText("+" + dex_bonus.toString());
+        } else {
+          DexMod.setText(dex_bonus.toString());
+          dexProf.setText(dex_bonus.toString());
+        }
+        if (con_bonus > 0) {
+          ConMod.setText("+" + con_bonus.toString());
+          conProf.setText("+" + con_bonus.toString());
+        } else {
+          ConMod.setText(con_bonus.toString());
+          conProf.setText(con_bonus.toString());
+        }
+        if (int_bonus > 0) {
+          IntMod.setText("+" + int_bonus.toString());
+          intProf.setText("+" + int_bonus.toString());
+        } else {
+          IntMod.setText(int_bonus.toString());
+          intProf.setText(int_bonus.toString());
+        }
+        if (wis_bonus > 0) {
+          WisMod.setText("+" + wis_bonus.toString());
+          wisProf.setText("+" + wis_bonus.toString());
+        } else {
+          WisMod.setText(wis_bonus.toString());
+          wisProf.setText(wis_bonus.toString());
+        }
+        if (cha_bonus > 0) {
+          ChaMod.setText("+" + cha_bonus.toString());
+          chaProf.setText("+" + cha_bonus.toString());
+        } else {
+          ChaMod.setText(cha_bonus.toString());
+          chaProf.setText(cha_bonus.toString());
+        }
+        //o pedaço abaixo adiciona o bonus de proficiencia nos testes de resistência de acordo com a classe
+        //porém por hora ele buga um pouco em caso de multiclasse jaq adiciona de todas as classes
+        //que o personagem tem
+        var forc = str_bonus + prof;
+        var dest = dex_bonus + prof;
+        var cons = con_bonus + prof;
+        var inti = int_bonus + prof;
+        var wisd = wis_bonus + prof;
+        var char = cha_bonus + prof;
+
+        levels
+          .filter((level) => level.value > 0)
+          .forEach((level) => {
+            switch (level.proficiencia1) {
+              case "str":
+                if (forc > 0) {
+                  strProf.setText("+" + forc.toString());
+                } else {
+                  strProf.setText(forc.toString());
+                }
+                checkboxFor.check();
+                break;
+              case "dex":
+                if (dest > 0) {
+                  dexProf.setText("+" + dest.toString());
+                } else {
+                  dexProf.setText(dest.toString());
+                }
+                checkboxDes.check();
+                break;
+              case "con":
+                if (cons > 0) {
+                  conProf.setText("+" + cons.toString());
+                } else {
+                  conProf.setText(cons.toString());
+                }
+                checkboxCon.check();
+                break;
+              case "int":
+                if (inti > 0) {
+                  intProf.setText("+" + inti.toString());
+                } else {
+                  intProf.setText(inti.toString());
+                }
+                checkboxInt.check();
+                break;
+              case "wis":
+                if (wisd > 0) {
+                  wisProf.setText("+" + wisd.toString());
+                } else {
+                  wisProf.setText(wisd.toString());
+                }
+                checkboxWis.check();
+                break;
+              case "cha":
+                if (char > 0) {
+                  chaProf.setText("+" + char.toString());
+                } else {
+                  chaProf.setText(char.toString());
+                }
+                checkboxCha.check();
+                break;
+            }
+            switch (level.proficiencia2) {
+              case "str":
+                if (forc > 0) {
+                  strProf.setText("+" + forc.toString());
+                } else {
+                  strProf.setText(forc.toString());
+                }
+                checkboxFor.check();
+                break;
+              case "dex":
+                if (dest > 0) {
+                  dexProf.setText("+" + dest.toString());
+                } else {
+                  dexProf.setText(dest.toString());
+                }
+                checkboxDes.check();
+                break;
+              case "con":
+                if (cons > 0) {
+                  conProf.setText("+" + cons.toString());
+                } else {
+                  conProf.setText(cons.toString());
+                }
+                checkboxCon.check();
+                break;
+              case "int":
+                if (inti > 0) {
+                  intProf.setText("+" + inti.toString());
+                } else {
+                  intProf.setText(inti.toString());
+                }
+                checkboxInt.check();
+                break;
+              case "wis":
+                if (wisd > 0) {
+                  wisProf.setText("+" + wisd.toString());
+                } else {
+                  wisProf.setText(wisd.toString());
+                }
+                checkboxWis.check();
+                break;
+              case "cha":
+                if (char > 0) {
+                  chaProf.setText("+" + char.toString());
+                } else {
+                  chaProf.setText(char.toString());
+                }
+                checkboxCha.check();
+                break;
+            }
+          });
+        //iniciativa e perceção passiva tem o bônus correspondente adicionado
+        var NomePersonagem = localStorage.getItem("characterName");
+        nameField.setText(NomePersonagem);
+
+        playerName.setText("NomeUsuario");
+
+        if (dex_bonus < 0) {
+          Initiative.setText(dex_bonus.toString());
+        } else {
+          Initiative.setText("+" + dex_bonus.toString());
+        }
+        inspiration.setText("0");
+        ProfBonus.setText("+" + prof.toString());
+        Speed.setText(racaSelecionada.Speed);
+        Passive.setText((10 + wis_bonus).toString());
+
+        //caso o personagem tenha nível em uma classe que tem acesso a magia, o cd de tr, spell attack são
+        //adiconados na pag3, eventualmente da pra colocar a quantidade de spells slots automaticamente
+        //adicionando essa info na array de lvls ou fazendo um switch pra cada classe, dnv sendo um problema
+        //pra multiclasse
+        if (lvlBard > 0) {
+          classeConjurador.setText("Bardo");
+          ModDeSpell.setText("Car");
+          CDdeSpell.setText((10 + cha_bonus + prof).toString());
+          BonusDeAtkDeSpell.setText((cha_bonus + prof).toString());
+        } else if (lvlBrux > 0) {
+          classeConjurador.setText("Bruxo");
+          ModDeSpell.setText("Car");
+          CDdeSpell.setText((10 + cha_bonus + prof).toString());
+          BonusDeAtkDeSpell.setText((cha_bonus + prof).toString());
+        } else if (lvlCaca > 0) {
+          classeConjurador.setText("Caçador");
+          ModDeSpell.setText("Sab");
+          CDdeSpell.setText((10 + wis_bonus + prof).toString());
+          BonusDeAtkDeSpell.setText((wis_bonus + prof).toString());
+        } else if (lvlCler > 0) {
+          classeConjurador.setText("Clérigo");
+          ModDeSpell.setText("Sab");
+          CDdeSpell.setText((10 + wis_bonus + prof).toString());
+          BonusDeAtkDeSpell.setText((wis_bonus + prof).toString());
+        } else if (lvlDrui > 0) {
+          classeConjurador.setText("Druida");
+          ModDeSpell.setText("Sab");
+          CDdeSpell.setText((10 + wis_bonus + prof).toString());
+          BonusDeAtkDeSpell.setText((wis_bonus + prof).toString());
+        } else if (lvlFeit > 0) {
+          classeConjurador.setText("Feiticeiro");
+          ModDeSpell.setText("Car");
+          CDdeSpell.setText((10 + cha_bonus + prof).toString());
+          BonusDeAtkDeSpell.setText((cha_bonus + prof).toString());
+        } else if (lvlMago > 0) {
+          classeConjurador.setText("Mago");
+          ModDeSpell.setText("Int");
+          CDdeSpell.setText((10 + int_bonus + prof).toString());
+          BonusDeAtkDeSpell.setText((int_bonus + prof).toString());
+        } else if (lvlPala > 0) {
+          classeConjurador.setText("Paladino");
+          ModDeSpell.setText("Car");
+          CDdeSpell.setText((10 + cha_bonus + prof).toString());
+          BonusDeAtkDeSpell.setText((cha_bonus + prof).toString());
+        }
+        // abaixo temos o calculo de CA, ainda não adicionei opções de acordo com armaduras, mas não é nd muito
+        //dificil, apenas demoradito
+
+        var AcValue = ArmaduraSelecionada.AC + dex_bonus;
+        if (
+          ArmaduraSelecionada.tipo === "Nenhum" ||
+          ArmaduraSelecionada.tipo === "Leve"
+        ) {
+          AcValue = ArmaduraSelecionada.AC + dex_bonus;
+          acField.setText(AcValue.toString());
+        } else if (ArmaduraSelecionada.tipo === "Media") {
+          if (dex_bonus >= 2) {
+            AcValue = ArmaduraSelecionada.AC + 2;
+            acField.setText(AcValue.toString());
+          } else {
+            AcValue = ArmaduraSelecionada.AC + 1;
+            acField.setText(AcValue.toString());
+          }
+        } else if (ArmaduraSelecionada.tipo === "Pesada") {
+          AcValue = ArmaduraSelecionada.AC;
+          acField.setText(AcValue.toString());
+        }
+
+        switch (true) {
+          case classeSelecionada.includes("Bárbaro") &&
+            classeSelecionada.includes("Monge") &&
+            ArmaduraSelecionada.tipo === "Nenhum":
+            AcValue = 10 + dex_bonus + wis_bonus + con_bonus;
+            acField.setText(AcValue.toString());
+            break;
+          case classeSelecionada.includes("Bárbaro") &&
+            ArmaduraSelecionada.tipo === "Nenhum":
+            AcValue = 10 + dex_bonus + con_bonus;
+            acField.setText(AcValue.toString());
+            break;
+          case classeSelecionada.includes("Monge") &&
+            ArmaduraSelecionada.tipo === "Nenhum":
+            AcValue = 10 + dex_bonus + wis_bonus;
+            acField.setText(AcValue.toString());
+            break;
+          default:
+            AcValue = 10 + dex_bonus;
+            break;
+        }
+
+        // as pericias ainda não são automaticas, pra isso preciso fazer uma forma de detectar quais pericias
+        //foram escolhidas/tem proficiencia, mas dps disso é facil até dms de colocar o resto
+
+        if (passadoSelecionado.nome === "Acólita") {
+          ReligiaoCheckbox.check();
+          IntuicaoCheckbox.check();
+        }
+        if (passadoSelecionado.nome === "Charlatão") {
+          BlefarCheckbox.check();
+          SleightOfHandCheckbox.check();
+        }
+        if (
+          passadoSelecionado.nome === "Criminoso" ||
+          passadoSelecionado.nome === "Espião"
+        ) {
+          BlefarCheckbox.check();
+          FurtividadeCheckbox.check();
+        }
+        if (
+          passadoSelecionado.nome === "Entretedor" ||
+          passadoSelecionado.nome === "Gladiador"
+        ) {
+          AcrobaciaCheckbox.check();
+          AtuacaoCheckox.check();
+        }
+        if (passadoSelecionado.nome === "Herói do povo") {
+          AnimaisCheckbox.check();
+          SobrevivenciaCheckbox.check();
+        }
+        if (passadoSelecionado.nome === "Eremita") {
+          MedicinaCheckbox.check();
+          ReligiaoCheckbox.check();
+        }
+        if (
+          passadoSelecionado.nome === "Artesão de Guilda" ||
+          passadoSelecionado.nome === "Mercador de Guilda"
+        ) {
+          IntuicaoCheckbox.check();
+          PersuasaoCheckbox.check();
+        }
+        if (
+          passadoSelecionado.nome === "Cavaleiro" ||
+          passadoSelecionado.nome === "Nobre"
+        ) {
+          HistoriaCheckbox.check();
+          PersuasaoCheckbox.check();
+        }
+        if (passadoSelecionado.nome === "Estrangeiro") {
+          AtletismoCheckbox.check();
+          SobrevivenciaCheckbox.check();
+        }
+        if (
+          passadoSelecionado.nome === "Pirata" ||
+          passadoSelecionado.nome === "Velejador"
+        ) {
+          AtletismoCheckbox.check();
+          percepcaoCheckbox.check();
+        }
+        if (passadoSelecionado.nome === "Sábio") {
+          ArcanaCheckbox.check();
+          HistoriaCheckbox.check();
+        }
+        if (passadoSelecionado.nome === "Soldado") {
+          AtletismoCheckbox.check();
+          IntimidacaoCheckbox.check();
+        }
+        if (passadoSelecionado.nome === "Orfão") {
+          SleightOfHandCheckbox.check();
+          FurtividadeCheckbox.check();
+        }
+
+        const selectedSkills =
+          JSON.parse(localStorage.getItem("selectedSkills")) || [];
+        if (selectedSkills.includes("acrobatics")) {
+          AcrobaciaCheckbox.check();
+        }
+        if (selectedSkills.includes("arcana")) {
+          ArcanaCheckbox.check();
+        }
+        if (selectedSkills.includes("athletics")) {
+          AtletismoCheckbox.check();
+        }
+        if (selectedSkills.includes("performance")) {
+          AtuacaoCheckox.check();
+        }
+        if (selectedSkills.includes("deception")) {
+          BlefarCheckbox.check();
+        }
+        if (selectedSkills.includes("stealth")) {
+          FurtividadeCheckbox.check();
+        }
+        if (selectedSkills.includes("history")) {
+          HistoriaCheckbox.check();
+        }
+        if (selectedSkills.includes("intimidation")) {
+          IntimidacaoCheckbox.check();
+        }
+        if (selectedSkills.includes("insight")) {
+          IntuicaoCheckbox.check();
+        }
+        if (selectedSkills.includes("investigation")) {
+          InvestigacaoCheckbox.check();
+        }
+        if (selectedSkills.includes("animal-handling")) {
+          AnimaisCheckbox.check();
+        }
+        if (selectedSkills.includes("medicine")) {
+          MedicinaCheckbox.check();
+        }
+        if (selectedSkills.includes("nature")) {
+          NaturezaCheckbox.check();
+        }
+        if (selectedSkills.includes("perception")) {
+          percepcaoCheckbox.check();
+        }
+        if (selectedSkills.includes("persuasion")) {
+          PersuasaoCheckbox.check();
+        }
+        if (selectedSkills.includes("prestidigitation")) {
+          SleightOfHandCheckbox.check();
+        }
+        if (selectedSkills.includes("religion")) {
+          ReligiaoCheckbox.check();
+        }
+        if (selectedSkills.includes("survival")) {
+          SobrevivenciaCheckbox.check();
+        }
+
+        if (AcrobaciaCheckbox.isChecked()) {
+          if (dest > 0) {
+            Acrobacia.setText("+" + dest.toString());
+          } else {
+            Acrobacia.setText(dest.toString());
+          }
+        } else {
+          if (dex_bonus > 0) {
+            Acrobacia.setText("+" + dex_bonus.toString());
+          } else {
+            Acrobacia.setText(dex_bonus.toString());
+          }
+        }
+        if (ArcanaCheckbox.isChecked()) {
+          if (inti > 0) {
+            Arcana.setText("+" + inti.toString());
+          } else {
+            Arcana.setText(inti.toString());
+          }
+        } else {
+          if (int_bonus > 0) {
+            Arcana.setText("+" + int_bonus.toString());
+          } else {
+            Arcana.setText(int_bonus.toString());
+          }
+        }
+
+        if (AtletismoCheckbox.isChecked()) {
+          if (forc > 0) {
+            Atletismo.setText("+" + forc.toString());
+          } else {
+            Atletismo.setText(forc.toString());
+          }
+        } else {
+          if (str_bonus > 0) {
+            Atletismo.setText("+" + str_bonus.toString());
+          } else {
+            Atletismo.setText(str_bonus.toString());
+          }
+        }
+
+        if (AtuacaoCheckox.isChecked()) {
+          if (char > 0) {
+            Atuacao.setText("+" + char.toString());
+          } else {
+            Atuacao.setText(char.toString());
+          }
+        } else {
+          if (cha_bonus > 0) {
+            Atuacao.setText("+" + cha_bonus.toString());
+          } else {
+            Atuacao.setText(cha_bonus.toString());
+          }
+        }
+
+        if (BlefarCheckbox.isChecked()) {
+          if (char > 0) {
+            Blefar.setText("+" + char.toString());
+          } else {
+            Blefar.setText(char.toString());
+          }
+        } else {
+          if (cha_bonus > 0) {
+            Blefar.setText("+" + cha_bonus.toString());
+          } else {
+            Blefar.setText(cha_bonus.toString());
+          }
+        }
+
+        if (FurtividadeCheckbox.isChecked()) {
+          if (dest > 0) {
+            Furtividade.setText("+" + dest.toString());
+          } else {
+            Furtividade.setText(dest.toString());
+          }
+        } else {
+          if (dex_bonus > 0) {
+            Furtividade.setText("+" + dex_bonus.toString());
+          } else {
+            Furtividade.setText(dex_bonus.toString());
+          }
+        }
+
+        if (HistoriaCheckbox.isChecked()) {
+          if (inti > 0) {
+            Historia.setText("+" + inti.toString());
+          } else {
+            Historia.setText(inti.toString());
+          }
+        } else {
+          if (int_bonus > 0) {
+            Historia.setText("+" + int_bonus.toString());
+          } else {
+            Historia.setText(int_bonus.toString());
+          }
+        }
+
+        if (InvestigacaoCheckbox.isChecked()) {
+          if (inti > 0) {
+            Investigacao.setText("+" + inti.toString());
+          } else {
+            Investigacao.setText(inti.toString());
+          }
+        } else {
+          if (int_bonus > 0) {
+            Investigacao.setText("+" + int_bonus.toString());
+          } else {
+            Investigacao.setText(int_bonus.toString());
+          }
+        }
+
+        if (AnimaisCheckbox.isChecked()) {
+          if (wisd > 0) {
+            Animais.setText("+" + wisd.toString());
+          } else {
+            Animais.setText(wisd.toString());
+          }
+        } else {
+          if (wis_bonus > 0) {
+            Animais.setText("+" + wis_bonus.toString());
+          } else {
+            Animais.setText(wis_bonus.toString());
+          }
+        }
+
+        if (IntimidacaoCheckbox.isChecked()) {
+          if (char > 0) {
+            Intimidacao.setText("+" + char.toString());
+          } else {
+            Intimidacao.setText(char.toString());
+          }
+        } else {
+          if (cha_bonus > 0) {
+            Intimidacao.setText("+" + cha_bonus.toString());
+          } else {
+            Intimidacao.setText(cha_bonus.toString());
+          }
+        }
+
+        if (IntuicaoCheckbox.isChecked()) {
+          if (inti > 0) {
+            Intuicao.setText("+" + inti.toString());
+          } else {
+            Intuicao.setText(inti.toString());
+          }
+        } else {
+          if (int_bonus > 0) {
+            Intuicao.setText("+" + int_bonus.toString());
+          } else {
+            Intuicao.setText(int_bonus.toString());
+          }
+        }
+
+        if (MedicinaCheckbox.isChecked()) {
+          if (inti > 0) {
+            Medicina.setText("+" + inti.toString());
+          } else {
+            Medicina.setText(inti.toString());
+          }
+        } else {
+          if (int_bonus > 0) {
+            Medicina.setText("+" + int_bonus.toString());
+          } else {
+            Medicina.setText(int_bonus.toString());
+          }
+        }
+        if (NaturezaCheckbox.isChecked()) {
+          if (inti > 0) {
+            Natureza.setText("+" + inti.toString());
+          } else {
+            Natureza.setText(inti.toString());
+          }
+        } else {
+          if (int_bonus > 0) {
+            Natureza.setText("+" + int_bonus.toString());
+          } else {
+            Natureza.setText(int_bonus.toString());
+          }
+        }
+        if (percepcaoCheckbox.isChecked()) {
+          if (wisd > 0) {
+            Percepcao.setText("+" + wisd.toString());
+          } else {
+            Percepcao.setText(wisd.toString());
+          }
+        } else {
+          if (wis_bonus > 0) {
+            Percepcao.setText("+" + wis_bonus.toString());
+          } else {
+            Percepcao.setText(wis_bonus.toString());
+          }
+        }
+        if (PersuasaoCheckbox.isChecked()) {
+          if (char > 0) {
+            Persuasao.setText("+" + char.toString());
+          } else {
+            Persuasao.setText(char.toString());
+          }
+        } else {
+          if (cha_bonus > 0) {
+            Persuasao.setText("+" + cha_bonus.toString());
+          } else {
+            Persuasao.setText(cha_bonus.toString());
+          }
+        }
+
+        if (SleightOfHandCheckbox.isChecked()) {
+          if (dest > 0) {
+            SleightOfHand.setText("+" + dest.toString());
+          } else {
+            SleightOfHand.setText(dest.toString());
+          }
+        } else {
+          if (dex_bonus > 0) {
+            SleightOfHand.setText("+" + dex_bonus.toString());
+          } else {
+            SleightOfHand.setText(dex_bonus.toString());
+          }
+        }
+        if (ReligiaoCheckbox) {
+          if (inti > 0) {
+            Religiao.setText("+" + inti.toString());
+          } else {
+            Religiao.setText(inti.toString());
+          }
+        } else {
+          if (int_bonus > 0) {
+            Religiao.setText("+" + int_bonus.toString());
+          } else {
+            Religiao.setText(int_bonus.toString());
+          }
+        }
+        if (SobrevivenciaCheckbox.isChecked()) {
+          if (wisd > 0) {
+            Sobrevivencia.setText("+" + wisd.toString());
+          } else {
+            Sobrevivencia.setText(wisd.toString());
+          }
+        } else {
+          if (wis_bonus > 0) {
+            Sobrevivencia.setText("+" + wis_bonus.toString());
+          } else {
+            Sobrevivencia.setText(wis_bonus.toString());
+          }
+        }
+
+        CaracteristicasEFeitos.setText(
+          [`${passadoSelecionado.skill}`, `${racaSelecionada.skills}`].join(
+            "\n"
+          )
+        );
+
+        equipamentos.setText(
+          levels
+            .filter((level) => level.value > 0)
+            .map(
+              (level) =>
+                `${ArmaduraSelecionada.nome}, ${level.equipametoInicialOpção1[0].a},  ${level.equipametoInicialOpção2[0].a},  ${level.equipametoInicialOpção3[0].a}, ${level.equipametoInicialOpção4[0].a}, ${level.equipamentoBase}, ${passadoSelecionado.Equipamento}`
+            )
+            .join("\n")
+        );
+
+        if (
+          racaSelecionada.racaNome === "Humano" ||
+          racaSelecionada.racaNome === "Meio elfo"
+        ) {
+          idiomaSelecionado = idiomas[4];
+          LinguasEOutrasProfs.setText(
+            [
+              racaSelecionada.idiomas +
+                " " +
+                idiomaSelecionado.nome +
+                " " +
+                idiomaQuant.toString(),
+            ].join("\n")
+          );
+        } else {
+          LinguasEOutrasProfs.setText(
+            [
+              racaSelecionada.idiomas +
+                " e + " +
+                idiomaQuant.toString() +
+                " de sua escolha",
+            ].join("\n")
+          );
+        }
+
+        // Serialize the PDFDocument to bytes (a Uint8Array)
+        const pdfBytes = await pdfDoc.save();
+
+        download(pdfBytes, `${NomePersonagem}.pdf`, "application/pdf");
+      }
+
+      function download(blob, filename, mime) {
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(new Blob([blob], { type: mime }));
+        link.download = filename;
+
+        // Adiciona o link ao DOM
+        document.body.appendChild(link);
+        // Dispara o download
+        link.click();
+        // Remove o link do DOM
+        document.body.removeChild(link);
+      }
+    </script>
+  </body>
+</html>

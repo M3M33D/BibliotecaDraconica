@@ -1,0 +1,147 @@
+/* Resetando estilos padrão */
+body, h1, label, input, button, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo global */
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    background-color: #000; /* Cor de fundo para contraste */
+}
+
+/* Container principal */
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Imagem de fundo */
+.image-container {
+    flex: 1;
+    background-image: url('taverna.jpeg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    transition: opacity 0.5s ease;
+}
+
+/* Container do formulário */
+.form-container {
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.85); /* Fundo escuro com transparência */
+    color: #fff;
+    padding: 40px;
+    max-width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    transform: scale(0.95);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-container:hover {
+    transform: scale(1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+/* Título do formulário */
+.form-title {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    text-align: center;
+}
+
+/* Grupo de entrada */
+.input-group {
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Rótulo do campo */
+.input-group label {
+    font-size: 1em;
+    margin-bottom: 5px;
+    display: block;
+    color: #fff;
+}
+
+/* Campo de entrada */
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    border: 2px solid #e74c3c;
+    border-radius: 5px;
+    background-color: #2c3e50;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #c0392b;
+    background-color: #34495e;
+}
+
+/* Mensagem de erro */
+.error-message {
+    color: #e74c3c;
+    font-size: 0.9em;
+    display: none; /* Inicialmente oculto */
+    margin-top: 5px;
+}
+
+/* Botão de ação */
+.cta-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.cta-btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+/* Alterar de login para inscrição e vice-versa */
+.switch-form {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #fff;
+}
+
+.switch-form a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.switch-form a:hover {
+    color: #2980b9;
+}
+
+/* Ocultar elementos */
+.hidden {
+    display: none;
+}
