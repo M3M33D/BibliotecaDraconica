@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biblioteca Dracônica - Guerreiro</title>
+  <link rel="stylesheet" href="/Tela Principal/styles2.css" />
+  <link rel="stylesheet" href="/Conteudo/racas/style.css" />
+  <link rel="stylesheet" href="/Conteudo/classes/style.css" />
+  <link rel="icon" href="/Imagens/logo2.png" type="image/png" />
+</head>
+<body class="arialson">
+  <!-- Header Section -->
+  <header class="header">
+    <div class="logo">
+      <img src="/Imagens/logo2.png" alt="Logo" />
+    </div>
+    <nav class="navigation">
+      <ul>
+        <li><a href="/Tela Principal/telaPrincipal.html">Início</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Sistemas de RPG <span class="arrow">&#9662;</span></a>
+          <div class="dropdown-content">
+            <div class="dropdown-item">
+              <a href="/DnD/Dn">D&D <span class="arrow">&#9656;</span></a>
+              <div class="submenu">
+                <a href="/Criacao de personagem/criacao.html">Fichas</a>
+                <a href="#">Descubra Mais</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li><a href="#">Ferramentas</a></li>
+        <li><a href="#">Ajuda</a></li>
+      </ul>
+    </nav>
+    <section class="search-bar">
+      <form id="search-form" action="#" method="get">
+        <input type="text" id="search-input" autocomplete="off" placeholder="Buscar..." aria-label="Buscar" />
+        <button type="submit">Pesquisar</button>
+      </form>
+    </section>
+    <div class="login">
+      <a href="/Login/Login.html" class="login-btn">Login</a>
+    </div>
+  </header>
+
+  <main class="class-section">
+    <div class="content-container">
+      <section class="class-description">
+        <h1 class="section-title">Monge</h1>
+        <h2 class="vermei">História e Origem</h2>
+        <p class="p">
+          Monges são mestres do corpo e da mente, treinando em mosteiros para alcançar a perfeição. Sua disciplina os torna ágeis e poderosos, usando o ki como fonte de energia espiritual.
+        </p>
+        <h2 class="vermei">Aparência</h2>
+        <p>
+          Vestindo roupas simples, os Monges geralmente apresentam uma postura serena e controlada. Seu físico reflete anos de treinamento rigoroso.
+        </p>
+        <h2 class="vermei">Características da Classe</h2>
+        <ul>
+          <li><strong class="rosin">Arte Marcial:</strong> Ataques rápidos e poderosos sem a necessidade de armas.</li>
+          <li><strong class="rosin">Manipulação do Ki:</strong> Use energia espiritual para realizar feitos incríveis.</li>
+          <li><strong class="rosin">Agilidade Superior:</strong> Mova-se com rapidez e evite ataques com facilidade.</li>
+        </ul>
+      </section>
+
+      <section class="class-images">
+        <img src="/Conteudo/classes/imagens/mongeINFO.png" alt="Monge" class="image" />
+      </section>
+    </div>
+    <br>
+    <section class="class-levels">
+      <h2 class="section-title">Tabela de Níveis e Características do Monge</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nível</th>
+            <th>Bônus de Proficiência</th>
+            <th>Artes Marciais</th>
+            <th>Pontos de Chi</th>
+            <th>Deslocamento sem Armadura</th>
+            <th>Características</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1º</td>
+            <td>+2</td>
+            <td>1d4</td>
+            <td>–</td>
+            <td>–</td>
+            <td>Defesa sem Armadura, Artes Marciais</td>
+          </tr>
+          <tr>
+            <td>2º</td>
+            <td>+2</td>
+            <td>1d4</td>
+            <td>2</td>
+            <td>+3m</td>
+            <td>Chi, Movimento sem Armadura</td>
+          </tr>
+          <tr>
+            <td>3º</td>
+            <td>+2</td>
+            <td>1d4</td>
+            <td>3</td>
+            <td>+3m</td>
+            <td>Tradição Monástica, Defletir Projéteis</td>
+          </tr>
+          <tr>
+            <td>4º</td>
+            <td>+2</td>
+            <td>1d4</td>
+            <td>4</td>
+            <td>+3m</td>
+            <td>Incremento no Valor de Habilidade, Queda Lenta</td>
+          </tr>
+          <tr>
+            <td>5º</td>
+            <td>+3</td>
+            <td>1d6</td>
+            <td>5</td>
+            <td>+3m</td>
+            <td>Ataque Extra, Ataque Atordoante</td>
+          </tr>
+          <tr>
+            <td>6º</td>
+            <td>+3</td>
+            <td>1d6</td>
+            <td>6</td>
+            <td>+4,5m</td>
+            <td>Golpes de Chi, Característica de Tradição Monástica</td>
+          </tr>
+          <tr>
+            <td>7º</td>
+            <td>+3</td>
+            <td>1d6</td>
+            <td>7</td>
+            <td>+4,5m</td>
+            <td>Evasão, Mente Tranquila</td>
+          </tr>
+          <tr>
+            <td>8º</td>
+            <td>+3</td>
+            <td>1d6</td>
+            <td>8</td>
+            <td>+4,5m</td>
+            <td>Incremento no Valor de Habilidade</td>
+          </tr>
+          <tr>
+            <td>9º</td>
+            <td>+4</td>
+            <td>1d6</td>
+            <td>9</td>
+            <td>+4,5m</td>
+            <td>Aprimoramento de Movimento sem Armadura</td>
+          </tr>
+          <tr>
+            <td>10º</td>
+            <td>+4</td>
+            <td>1d6</td>
+            <td>10</td>
+            <td>+6m</td>
+            <td>Pureza Corporal</td>
+          </tr>
+          <tr>
+            <td>11º</td>
+            <td>+4</td>
+            <td>1d8</td>
+            <td>11</td>
+            <td>+6m</td>
+            <td>Característica de Tradição Monástica</td>
+          </tr>
+          <tr>
+            <td>12º</td>
+            <td>+4</td>
+            <td>1d8</td>
+            <td>12</td>
+            <td>+6m</td>
+            <td>Incremento no Valor de Habilidade</td>
+          </tr>
+          <tr>
+            <td>13º</td>
+            <td>+5</td>
+            <td>1d8</td>
+            <td>13</td>
+            <td>+6m</td>
+            <td>Idiomas do Sol e da Lua</td>
+          </tr>
+          <tr>
+            <td>14º</td>
+            <td>+5</td>
+            <td>1d8</td>
+            <td>14</td>
+            <td>+7,5m</td>
+            <td>Alma de Diamante</td>
+          </tr>
+          <tr>
+            <td>15º</td>
+            <td>+5</td>
+            <td>1d8</td>
+            <td>15</td>
+            <td>+7,5m</td>
+            <td>Corpo Atemporal</td>
+          </tr>
+          <tr>
+            <td>16º</td>
+            <td>+5</td>
+            <td>1d8</td>
+            <td>16</td>
+            <td>+7,5m</td>
+            <td>Incremento no Valor de Habilidade</td>
+          </tr>
+          <tr>
+            <td>17º</td>
+            <td>+6</td>
+            <td>1d10</td>
+            <td>17</td>
+            <td>+7,5m</td>
+            <td>Característica de Tradição Monástica</td>
+          </tr>
+          <tr>
+            <td>18º</td>
+            <td>+6</td>
+            <td>1d10</td>
+            <td>18</td>
+            <td>+9m</td>
+            <td>Corpo Vazio</td>
+          </tr>
+          <tr>
+            <td>19º</td>
+            <td>+6</td>
+            <td>1d10</td>
+            <td>19</td>
+            <td>+9m</td>
+            <td>Incremento no Valor de Habilidade</td>
+          </tr>
+          <tr>
+            <td>20º</td>
+            <td>+6</td>
+            <td>1d10</td>
+            <td>20</td>
+            <td>+9m</td>
+            <td>Auto Aperfeiçoamento</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <br>
+    <section class="class-levels">
+      <h2 class="section-title">Descrições das Características do Monge</h2>
+      <table class="barbarian-table">
+        <thead>
+          <tr>
+            <th>Nível</th>
+            <th>Característica</th>
+            <th>Descrição</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1º</td>
+            <td>Defesa sem Armadura</td>
+            <td>Sem armadura, sua CA é igual a 10 + Destreza + Sabedoria.</td>
+          </tr>
+          <tr>
+            <td>1º</td>
+            <td>Artes Marciais</td>
+            <td>Use o dado de Artes Marciais para dano e ataque desarmado, e ataque com armas simples como bônus.</td>
+          </tr>
+          <tr>
+            <td>2º</td>
+            <td>Chi</td>
+            <td>Utilize pontos de chi para habilidades especiais, como Passo do Vento e Golpe Desarmado.</td>
+          </tr>
+          <tr>
+            <td>2º</td>
+            <td>Movimento sem Armadura</td>
+            <td>Aumenta seu deslocamento quando você não estiver usando armadura.</td>
+          </tr>
+          <tr>
+            <td>3º</td>
+            <td>Tradição Monástica</td>
+            <td>Escolha um caminho monástico que define habilidades especiais.</td>
+          </tr>
+          <tr>
+            <td>3º</td>
+            <td>Defletir Projéteis</td>
+            <td>Use sua reação para reduzir o dano de ataques à distância.</td>
+          </tr>
+          <tr>
+            <td>4º, 8º, 12º, 16º, 19º</td>
+            <td>Incremento no Valor de Habilidade</td>
+            <td>Melhore seus atributos ou adquira talentos adicionais.</td>
+          </tr>
+          <tr>
+            <td>5º</td>
+            <td>Ataque Extra</td>
+            <td>Realize dois ataques na mesma ação de ataque.</td>
+          </tr>
+          <tr>
+            <td>5º</td>
+            <td>Ataque Atordoante</td>
+            <td>Use pontos de chi para forçar um teste de resistência de Constituição, atordoando inimigos.</td>
+          </tr>
+          <tr>
+            <td>6º</td>
+            <td>Golpes de Chi</td>
+            <td>Seus ataques desarmados contam como mágicos para ignorar resistências.</td>
+          </tr>
+          <tr>
+            <td>6º, 11º, 17º</td>
+            <td>Característica de Tradição Monástica</td>
+            <td>Receba habilidades exclusivas de sua tradição monástica.</td>
+          </tr>
+          <tr>
+            <td>7º</td>
+            <td>Evasão</td>
+            <td>Quando precisar fazer testes de resistência de Destreza, sofra metade do dano em falhas e nenhum em sucessos.</td>
+          </tr>
+          <tr>
+            <td>7º</td>
+            <td>Mente Tranquila</td>
+            <td>Use sua ação para terminar condições de amedrontado ou encantado.</td>
+          </tr>
+          <tr>
+            <td>9º</td>
+            <td>Aprimoramento de Movimento sem Armadura</td>
+            <td>Você pode escalar superfícies ou correr pela água.</td>
+          </tr>
+          <tr>
+            <td>10º</td>
+            <td>Pureza Corporal</td>
+            <td>Você se torna imune a doenças e venenos.</td>
+          </tr>
+          <tr>
+            <td>13º</td>
+            <td>Idiomas do Sol e da Lua</td>
+            <td>Comunique-se com qualquer criatura que compreenda pelo menos um idioma.</td>
+          </tr>
+          <tr>
+            <td>14º</td>
+            <td>Alma de Diamante</td>
+            <td>Você ganha proficiência em todos os testes de resistência.</td>
+          </tr>
+          <tr>
+            <td>15º</td>
+            <td>Corpo Atemporal</td>
+            <td>Você não envelhece e não precisa de comida ou água.</td>
+          </tr>
+          <tr>
+            <td>18º</td>
+            <td>Corpo Vazio</td>
+            <td>Gaste pontos de chi para ficar invisível ou resistente a dano por 1 minuto.</td>
+          </tr>
+          <tr>
+            <td>20º</td>
+            <td>Auto Aperfeiçoamento</td>
+            <td>Ao rolar iniciativa, recupere 4 pontos de chi.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>        
+
+    <section class="extra-info">
+      <h2>Curiosidades</h2>
+      <p>
+        A origem de um Monge pode estar em ordens de diferentes filosofias, influenciando seu estilo de luta e crenças espirituais.
+      </p>
+    </section>
+    <a href="/Conteudo/classes/subclasses/INFO/subMonINFO.html" class="character-creation-btn">SubClasses</a>
+    <a href="/Conteudo/classes/classes.html" class="character-creation-btn">Ver outras Classes</a>
+    <a href="/Criacao de personagem/criacao.html" class="character-creation-btn">Ir para Criação de Personagem</a>
+    <a href="/Conteudo/magias/principal.html" class="character-creation-btn">Sobre Magia</a>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 Biblioteca Dracônica. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>

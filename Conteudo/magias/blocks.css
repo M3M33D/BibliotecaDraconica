@@ -1,0 +1,40 @@
+/* Estilo do container dinâmico como grid */
+#dynamic-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Cada coluna tem no mínimo 250px */
+    gap: 30px; /* Espaçamento entre os blocos */
+    padding: 20px;
+    justify-content: center; /* Centraliza os itens */
+    max-width: 1800px; /* Define a largura máxima do container */
+    margin: 20px auto; /* Centraliza o container */
+}
+
+/* Estilo de cada content-block */
+.content-block {
+    text-align: center;
+    background-color: var(--fundo-claro); /* Cor de fundo anterior */
+    border-radius: 8px; /* Bordas arredondadas */
+    padding: 20px; /* Espaçamento interno */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+    width: 85%;
+}
+
+/* Título do bloco */
+.content-block h2 {
+    font-size: 2em;
+    color: var(--texto-preto); /* Cor preta para o título */
+    margin-bottom: 15px;
+}
+
+/* Texto descritivo */
+.content-block p {
+    color: var(--texto-claro); /* Cor clara para o texto */
+    font-size: 1em;
+}
+
+/* Efeito de hover no bloco */
+.content-block:hover {
+    transform: translateY(-5px); /* Animação de leve elevação */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Sombra mais forte */
+}

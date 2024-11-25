@@ -201,7 +201,7 @@ body {
   background-position: center;
   color: var(--texto-preto);
   text-align: center;
-  padding: 250px 20px; /* Ajustado para ocupar mais espaço */
+  padding: 290px 20px; /* Ajustado para ocupar mais espaço */
 }
 
 .banner-content {

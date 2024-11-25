@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biblioteca Dracônica</title>
+  <link rel="stylesheet" href="/Tela Principal/styles2.css" />
+  <link rel="stylesheet" href="/Conteudo/racas/style.css" />
+  <link rel="icon" href="/Imagens/logo2.png" type="image/png" />
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="logo">
+        <img src="/Imagens/logo2.png" alt="Logo">
+    </div>
+    <nav class="navigation">
+        <ul>
+          <li><a href="/Tela Principal/telaPrincipal.html">Início</a></li>
+          <li class="dropdown">
+              <a href="/Accordions/01/index.html" class="dropbtn">Sistemas de RPG <span class="arrow">&#9662;</span></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-item">
+                        <a href="/DnD/Dn">D&D   <span class="arrow">&#9656;</span></a>
+                        <div class="submenu">
+                            <a href="/Criacao de personagem/criacao.html">Fichas</a>
+                            <a href="/informacoesDnd/InfoPrincipal.html">Descubra Mais</a>
+                            <a href="/Conteudo/classes/principal.html">Classes</a>
+                            <a href="/Conteudo/classes/subclasses/principal.html">SubClasses</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#">Tormenta20   <span class="arrow">&#9656;</span></a>
+                        <div class="submenu">
+                            <a href="#">Fichas</a>
+                            <a href="#">Descubra Mais</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#">Ordem Paranormal   <span class="arrow">&#9656;</span></a>
+                        <div class="submenu">
+                            <a href="#">Fichas</a>
+                            <a href="#">Descubra Mais</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#">Vampiro: A Máscara   <span class="arrow">&#9656;</span></a>
+                        <div class="submenu">
+                            <a href="#">Fichas</a>
+                            <a href="#">Descubra Mais</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#">Ferramentas</a></li>
+            <li><a href="#">Ajuda</a></li>
+        </ul>
+    </nav>
+    <section class="search-bar">
+        <form id="search-form" action="#" method="get">
+            <input type="text" id="search-input" type="text" autocomplete="off" placeholder="Buscar..." aria-label="Buscar">
+            <button type="submit">Pesquisar</button>
+        </form>
+        <div id="autocomplete-results" class="autocomplete-results"></div> 
+    </section>
+    
+    <div class="login">
+        <a href="/Login/Login.html" class="login-btn">Login</a>
+    </div>
+</header>
+
+  <!-- Carrossel de Classes -->
+  <section class="champion-carousel">
+    <!-- Guerreiro -->
+<div class="champion-slide active" id="guerreiro">
+    <div 
+       class="champion-background" 
+       style="background-image: url('/Imagens/guerreiro_background.jpg')"
+      >
+      <div class="champion-content">
+        <img src="/Conteudo/classes/imagens/guerreiro.png" alt="Guerreiro" />
+        <div class="champion-details">
+          <h1>Guerreiro</h1>
+          <p>Guerreiros são mestres em combate, treinados em várias armas e táticas. Seja como mercenários ou guardiões, confiam em sua força e disciplina para superar desafios e proteger o que valorizam.</p>
+          <a href="/Conteudo/classes/INFO/guerreiroINFO.html" class="explore-button-link">
+            <button class="explore-button">Descubra Mais</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+    <!-- Mago -->
+    <div class="champion-slide" id="mago">
+      <div class="champion-background" style="background-image: url('/Imagens/mago_background.jpg')">
+        <div class="champion-content">
+          <img src="/Conteudo/classes/imagens/mago.png" alt="Mago" />
+          <div class="champion-details">
+            <h1>Mago</h1>
+            <p>Magos são estudiosos da magia, que adquirem poder através de extensos estudos arcanos. Eles acumulam conhecimentos diversos e testam suas habilidades em aventuras para desvendar segredos do universo.</p>
+            <a href="/Conteudo/classes/INFO/magoINFO.html" class="explore-button-link">
+              <button class="explore-button">Descubra Mais</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ladino -->
+    <div class="champion-slide" id="ladino">
+      <div class="champion-background" style="background-image: url('/Imagens/ladino_background.jpg')">
+        <div class="champion-content">
+          <img src="/Conteudo/classes/imagens/ladino.png" alt="Ladino" />
+          <div class="champion-details">
+            <h1>Ladino</h1>
+            <p>Ladinos são especialistas em furtividade e precisão, muitas vezes ligados ao submundo. Usam suas habilidades para se infiltrar e obter vantagem, e atuam como peças-chave em qualquer grupo de aventureiros.</p>
+            <a href="/Conteudo/classes/INFO/ladinoINFO.html" class="explore-button-link">
+              <button class="explore-button">Descubra Mais</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bruxo -->
+    <div class="champion-slide" id="bruxo">
+      <div class="champion-background" style="background-image: url('/Imagens/bruxo_background.jpg')">
+        <div class="champion-content">
+          <img src="/Conteudo/classes/imagens/bruxo.png" alt="Bruxo" />
+          <div class="champion-details">
+            <h1>Bruxo</h1>
+            <p>Bruxos obtêm poder por meio de pactos com seres sobrenaturais, recebendo habilidades únicas em troca de lealdade. Eles exploram o desconhecido, em busca de mais poder e sabedoria.</p>
+            <a href="/Conteudo/classes/INFO/bruxoINFO.html" class="explore-button-link">
+              <button class="explore-button">Descubra Mais</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bardo -->
+    <div class="champion-slide" id="bardo">
+      <div class="champion-background" style="background-image: url('/Imagens/bardo_background.jpg')">
+        <div class="champion-content">
+          <img src="/Conteudo/classes/imagens/bardo.png" alt="Bardo" />
+          <div class="champion-details">
+            <h1>Bardo</h1>
+            <p>Bardos são músicos e contadores de histórias, capazes de conjurar magia através da arte. Atraídos pelo conhecimento, viajam constantemente, compartilhando e adquirindo sabedoria.</p>
+            <a href="/Conteudo/classes/INFO/bardoINFO.html" class="explore-button-link">
+              <button class="explore-button">Descubra Mais</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bárbaro -->
+    <div class="champion-slide" id="barbaro">
+      <div class="champion-background" style="background-image: url('/Imagens/barbaro_background.jpg')">
+        <div class="champion-content">
+          <img src="/Conteudo/classes/imagens/barbaro.png" alt="Bárbaro" />
+          <div class="champion-details">
+            <h1>Bárbaro</h1>
+            <p>Bárbaros canalizam uma fúria primitiva em combate, vindo de tribos nas fronteiras da civilização. Esse poder bruto os torna ferozes e implacáveis, buscando liberdade e desafios.</p>
+            <a href="/Conteudo/classes/INFO/barbaroINFO.html" class="explore-button-link">
+              <button class="explore-button">Descubra Mais</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feiticeiro -->
+    <div class="champion-slide" id="feiticeiro">
+      <div class="champion-background" style="background-image: url('/Imagens/feiticeiro_background.jpg')">
+        <div class="champion-content">
+          <img src="/Conteudo/classes/imagens/feiticeiro.png" alt="Feiticeiro" />
+          <div class="champion-details">
+            <h1>Feiticeiro</h1>
+            <p>Feiticeiros nascem com magia em seu sangue, manifestada sem necessidade de estudo. Sua magia inata é poderosa e imprevisível, sendo tanto um dom quanto um mistério.</p>
+            <a href="/Conteudo/classes/INFO/feiticeiroINFO.html" class="explore-button-link">
+              <button class="explore-button">Descubra Mais</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paladino -->
+    <div class="champion-slide" id="paladino">
+      <div class="champion-background" style="background-image: url('/Imagens/paladino_background.jpg')">
+        <div class="champion-content">
+          <img src="/Conteudo/classes/imagens/paladino.png" alt="Paladino" />
+          <div class="champion-details">
+            <h1>Paladino</h1>
+            <p>Paladinos são defensores da justiça e da honra, comprometidos com ideais sagrados. Guiados por juramentos, eles possuem habilidades divinas para combater as forças do mal.</p>
+            <a href="/Conteudo/classes/INFO/paladinoINFO.html" class="explore-button-link">
+              <button class="explore-button">Descubra Mais</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Clérigo -->
+    <div class="champion-slide" id="clerigo">
+      <div class="champion-background" style="background-image: url('/Imagens/clerigo_background.jpg')">
+        <div class="champion-content">
+          <img src="/Conteudo/classes/imagens/clerigo.png" alt="Clérigo" />
+          <div class="champion-details">
+            <h1>Clérigo</h1>
+            <p>Clérigos são sacerdotes dotados de poderes divinos, servindo como intermediários entre os deuses e os mortais. Eles podem curar aliados, proteger o grupo e invocar forças celestiais para enfrentar inimigos.</p>
+            <a href="/Conteudo/classes/INFO/clerigoINFO.html" class="explore-button-link">
+              <button class="explore-button">Descubra Mais</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>    
+
+    <!-- Druida -->
+    <div class="champion-slide" id="druida">
+      <div class="champion-background" style="background-image: url('/Imagens/druida_background.jpg')">
+        <div class="champion-content">
+          <img src="/Conteudo/classes/imagens/druida.png" alt="Druida" />
+          <div class="champion-details">
+            <h1>Druida</h1>
+            <p>Druidas são protetores da natureza, com poderes para se transformar e canalizar os elementos. Ligados ao mundo natural, preservam o equilíbrio e lutam contra ameaças ao meio ambiente.</p>
+            <a href="/Conteudo/classes/INFO/druidaINFO.html" class="explore-button-link">
+              <button class="explore-button">Descubra Mais</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Monge -->
+    <div class="champion-slide" id="monge">
+      <div class="champion-background" style="background-image: url('/Imagens/monge_background.jpg')">
+        <div class="champion-content">
+          <img src="/Conteudo/classes/imagens/monge.png" alt="Monge" />
+          <div class="champion-details">
+            <h1>Monge</h1>
+            <p>Monges treinam corpo e mente, alcançando feitos extraordinários. Canalizando uma energia chamada ki, usam disciplina e agilidade em combate, preferindo precisão à força bruta.</p>
+            <a href="/Conteudo/classes/INFO/mongeINFO.html" class="explore-button-link">
+              <button class="explore-button">Descubra Mais</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Caçador (Ranger) -->
+    <div class="champion-slide" id="cacador">
+      <div class="champion-background" style="background-image: url('/Imagens/cacador_background.jpg')">
+        <div class="champion-content">
+          <img src="/Conteudo/classes/imagens/caçador.png" alt="Caçador" />
+          <div class="champion-details">
+            <h1>Caçador</h1>
+            <p>Caçadores são especialistas em sobrevivência e combate à distância, com forte vínculo com a natureza. Protegem comunidades e rastreiam ameaças, sendo guias hábeis nas regiões selvagens.</p>
+            <a href="/Conteudo/classes/INFO/caçadorINFO.html" class="explore-button-link">
+              <button class="explore-button">Descubra Mais</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-control prev" onclick="prevSlide()">&#10094;</button>
+    <button class="carousel-control next" onclick="nextSlide()">&#10095;</button>
+  </section>
+
+  <!-- Additional Options Section -->
+  <section class="additional-options">
+    <div class="options-content">
+      <h2>Mais Opções</h2>
+      <ul>
+        <li><a href="#">Configurações</a></li>
+        <li><a href="#">Sobre Nós</a></li>
+        <li><a href="#">Contate-nos</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <script src="/Tela Principal/script.js"></script>
+  <script src="script.js"></script>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <p>&copy; 2024 Biblioteca Dracônica.</p>
+  </footer>
+</body>
+</html>

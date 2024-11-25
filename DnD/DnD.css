@@ -4,38 +4,79 @@ body {
     text-align: center;
 }
 
-/* Estilo do dado */
-#dice {
-    width: 150px;
-    height: 150px;
+/* Estilo geral de cada dado */
+.dice-container {
+    display: inline-block;
+    margin: 20px;
+    position: relative;
+}
+
+.dice {
     background-color: #ff4444; /* Cor do dado */
-    font-size: 3em;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 20px auto;
-    transition: transform 0.3s;
-    text-align: center;
-    line-height: 150px; /* Para centralizar o número */
-    font-family: 'Arial', sans-serif; /* Fonte simples */
+    margin: 10px;
+    font-size: 2em;
+    font-family: 'Arial', sans-serif;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-
-    /* Criar forma de dodecágono com 12 lados */
-    clip-path: polygon(
-        30% 0%, 70% 0%, 
-        90% 15%, 100% 40%, 
-        100% 60%, 90% 85%, 
-        70% 100%, 30% 100%, 
-        10% 85%, 0% 60%, 
-        0% 40%, 10% 15%
-    );
+    transition: transform 0.3s, background-color 0.3s;
+    cursor: pointer;
 }
 
-/* Botão de rolar dado */
-#rollButton {
+/* D4 */
+#diceD4 {
+    width: 125px; 
+    height: 125px;
+    clip-path: polygon(50% 10%, 90% 90%, 10% 90%);
+    background-color:blue
+}
+
+/* D6 */
+#diceD6 {
+    width: 100px; 
+    height: 100px;
+    clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
+    background-color: rgb(124, 43, 201);
+}
+
+/* D8 */
+#diceD8 {
+    width: 130px; 
+    height: 130px;
+    clip-path: polygon(50% 10%, 90% 50%, 50% 90%, 10% 50%);
+    background-color: darkblue;
+}
+
+/* D10 */
+#diceD10 {
+    width: 140px; 
+    height: 140px;
+    clip-path: polygon(50% 10%, 85% 40%, 75% 80%, 25% 80%, 15% 40%);
+    background-color: indigo;
+}
+
+/* D12 */
+#diceD12 {
+    width: 130px; /* Aumentado */
+    height: 130px;
+    clip-path: polygon(50% 10%, 80% 30%, 90% 60%, 70% 90%, 30% 90%, 10% 60%, 20% 30%);
+    background-color:purple;
+}
+
+/* D20 */
+#diceD20 {
+    width: 130px; /* Aumentado */
+    height: 130px;
+    clip-path: polygon(50% 10%, 85% 30%, 90% 70%, 65% 90%, 35% 90%, 10% 70%, 15% 30%);
+    background-color:slateblue;
+}
+
+/* Botões e resultados */
+button {
     display: block;
-    margin: 20px auto;
+    margin: 10px auto;
     padding: 10px 20px;
     font-size: 1.2em;
     cursor: pointer;
@@ -46,13 +87,17 @@ body {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-#rollButton:hover {
+button:hover {
     background-color: #666;
 }
 
-/* Resultado do dado */
-#result {
-    text-align: center;
-    font-size: 1.5em;
-    margin-top: 20px;
+.dice-result {
+    position: absolute;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
 }

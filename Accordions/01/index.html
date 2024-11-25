@@ -17,18 +17,53 @@
     </div>
     <nav class="navigation">
         <ul>
-            <li><a href="/Tela Principal/telaPrincipal.html">Início</a></li>
+            <li><a href="#">Início</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Sistemas de RPG <span class="arrow">&#9662;</span></a>
+                <div class="dropdown-content">
+                    <div class="dropdown-item">
+                        <a href="/DnD/Dn">D&D   <span class="arrow">&#9656;</span></a>
+                        <div class="submenu">
+                            <a href="/Criacao de personagem/criacao.html">Fichas</a>
+                            <a href="/informacoesDnd/InfoPrincipal.html">Descubra Mais</a>
+                            <a href="/Conteudo/classes/principal.html">Classes</a>
+                            <a href="/Conteudo/classes/subclasses/principal.html">SubClasses</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#">Tormenta20   <span class="arrow">&#9656;</span></a>
+                        <div class="submenu">
+                            <a href="#">Fichas</a>
+                            <a href="#">Descubra Mais</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#">Ordem Paranormal   <span class="arrow">&#9656;</span></a>
+                        <div class="submenu">
+                            <a href="#">Fichas</a>
+                            <a href="#">Descubra Mais</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-item">
+                        <a href="#">Vampiro: A Máscara   <span class="arrow">&#9656;</span></a>
+                        <div class="submenu">
+                            <a href="#">Fichas</a>
+                            <a href="#">Descubra Mais</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
             <li><a href="#">Ferramentas</a></li>
             <li><a href="#">Ajuda</a></li>
         </ul>
     </nav>
     <section class="search-bar">
-      <form id="search-form" action="#" method="get">
-          <input type="text" id="search-input" type="text" autocomplete="off" placeholder="Buscar..." aria-label="Buscar">
-          <button type="submit">Pesquisar</button>
-      </form>
-      <div id="autocomplete-results" class="autocomplete-results"></div> 
-  </section>
+        <form id="search-form" action="#" method="get">
+            <input type="text" id="search-input" type="text" autocomplete="off" placeholder="Buscar..." aria-label="Buscar">
+            <button type="submit">Pesquisar</button>
+        </form>
+        <div id="autocomplete-results" class="autocomplete-results"></div> 
+    </section>
     
     <div class="login">
         <a href="/Login/Login.html" class="login-btn">Login</a>

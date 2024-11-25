@@ -6,7 +6,7 @@
     <title>Biblioteca Dracônica</title>
     <link rel="stylesheet" href="/Tela Principal/styles2.css">
     <link rel="stylesheet" href="DnD.css">
-    <link rel="icon" href="/Imagens/logo.png" type="image/png">
+    <link rel="icon" href="/Imagens/logo2.png" type="image/png">
 </head>
 <body>
     <!-- Header Section -->
@@ -16,6 +16,42 @@
         </div>
         <nav class="navigation">
             <ul>
+                <li><a href="/Tela Principal/telaPrincipal.html">Início</a></li>
+                <li class="dropdown">
+                    <a href="/Accordions/01/index.html" class="dropbtn">Sistemas de RPG <span class="arrow">&#9662;</span></a>
+                    <div class="dropdown-content">
+                        <div class="dropdown-item">
+                            <a href="/DnD/Dn">D&D   <span class="arrow">&#9656;</span></a>
+                            <div class="submenu">
+                                <a href="/Criacao de personagem/criacao.html">Fichas</a>
+                                <a href="/informacoesDnd/InfoPrincipal.html">Descubra Mais</a>
+                                <a href="/Conteudo/classes/principal.html">Classes</a>
+                                <a href="/Conteudo/classes/subclasses/principal.html">SubClasses</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">Tormenta20   <span class="arrow">&#9656;</span></a>
+                            <div class="submenu">
+                                <a href="#">Fichas</a>
+                                <a href="#">Descubra Mais</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">Ordem Paranormal   <span class="arrow">&#9656;</span></a>
+                            <div class="submenu">
+                                <a href="#">Fichas</a>
+                                <a href="#">Descubra Mais</a>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="#">Vampiro: A Máscara   <span class="arrow">&#9656;</span></a>
+                            <div class="submenu">
+                                <a href="#">Fichas</a>
+                                <a href="#">Descubra Mais</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="#">Ferramentas</a></li>
                 <li><a href="#">Ajuda</a></li>
             </ul>
@@ -32,19 +68,8 @@
             <a href="/Login/Login.html" class="login-btn">Login</a>
         </div>
     </header>
-    
-    <div>
-        <label for="diceType">Selecione o tipo de dado:</label>
-        <select id="diceType">
-            <option value="4">D4</option>
-            <option value="6">D6</option>
-            <option value="8">D8</option>
-            <option value="10">D10</option>
-            <option value="12">D12</option>
-            <option value="20">D20</option>
-        </select>
-    </div>
-    
+
+    <!-- Dado Section -->
     <div>
         <label for="diceCount">Quantos dados você quer rolar?</label>
         <input type="number" id="diceCount" min="1" value="1">
@@ -55,11 +80,46 @@
         <input type="checkbox" id="showIndividualResults">
     </div>
 
-    <div id="dice">1</div>
-    <button id="rollButton">Rolar Dado(s)</button>
-    <div id="result"></div>
+    <!-- Dados e Botões para rolar -->
+    <div id="diceSection">
+        <div class="dice-container">
+            <div id="diceD4" class="dice">D4</div>
+            <div id="resultD4" class="dice-result"></div>
+            <button id="rollD4Button">Rolar D4</button>
+        </div>
+        
+        <div class="dice-container">
+            <div id="diceD6" class="dice">D6</div>
+            <div id="resultD6" class="dice-result"></div>
+            <button id="rollD6Button">Rolar D6</button>
+        </div>
+        
+        <div class="dice-container">
+            <div id="diceD8" class="dice">D8</div>
+            <div id="resultD8" class="dice-result"></div>
+            <button id="rollD8Button">Rolar D8</button>
+        </div>
+        
+        <div class="dice-container">
+            <div id="diceD10" class="dice">D10</div>
+            <div id="resultD10" class="dice-result"></div>
+            <button id="rollD10Button">Rolar D10</button>
+        </div>
+        
+        <div class="dice-container">
+            <div id="diceD12" class="dice">D12</div>
+            <div id="resultD12" class="dice-result"></div>
+            <button id="rollD12Button">Rolar D12</button>
+        </div>
+        
+        <div class="dice-container">
+            <div id="diceD20" class="dice">D20</div>
+            <div id="resultD20" class="dice-result"></div>
+            <button id="rollD20Button">Rolar D20</button>
+        </div>
+        </div>
+    </div>
 
-    <!-- Content Section -->
     <section class="content">
         <div class="content-block">
             <h2>Criação de Personagens</h2>

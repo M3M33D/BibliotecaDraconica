@@ -200,18 +200,48 @@ function loadCharacterData() {
 
 // Save attributes to localStorage
 function saveAttributes() {
-  const attributes = {
-    strength: document.getElementById("strength").value,
-    dexterity: document.getElementById("dexterity").value,
-    constitution: document.getElementById("constitution").value,
-    intelligence: document.getElementById("intelligence").value,
-    wisdom: document.getElementById("wisdom").value,
-    charisma: document.getElementById("charisma").value,
-  };
+  var strength =  document.getElementById("strength").value
+  var dexterity =  document.getElementById("dexterity").value
+  var constitution = document.getElementById("constitution").value
+  var intelligence = document.getElementById("intelligence").value
+  var wisdom = document.getElementById("wisdom").value
+  var charisma = document.getElementById("charisma").value
+
+ const attributes = (strength.value+" "+dexterity.value+" "+constitution.value+" "+intelligence.value+" "+wisdom.value+" "+charisma.value)
   localStorage.setItem("attributes", JSON.stringify(attributes));
   console.log("Attributes saved:", attributes);
+
+  localStorage.setItem("characterStrength", strength);
+  localStorage.setItem("characterConstitution", constitution);
+  localStorage.setItem("characterDexterity", dexterity);
+  localStorage.setItem("characterIntelligence", intelligence);
+  localStorage.setItem("characterWisdom", wisdom);
+  localStorage.setItem("characterCharisma", charisma);
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  const button = document.getElementById("save-attributes-btn");
+  if (button) {
+    button.addEventListener("click", function () {
+      const strength = document.getElementById("strength").value;
+      const constitution = document.getElementById("constitution").value;
+      const dexterity = document.getElementById("dexterity").value;
+      const intelligence = document.getElementById("intelligence").value;
+      const wisdom = document.getElementById("wisdom").value;
+      const charisma = document.getElementById("charisma").value;
+
+      // Armazenar atributos no localStorage
+      localStorage.setItem("characterStrength", strength);
+      localStorage.setItem("characterConstitution", constitution);
+      localStorage.setItem("characterDexterity", dexterity);
+      localStorage.setItem("characterIntelligence", intelligence);
+      localStorage.setItem("characterWisdom", wisdom);
+      localStorage.setItem("characterCharisma", charisma);
+      // Navegar para a próxima página
+      window.location.href = "pericias.html";
+    });
+  }
+});
 // Load attributes from localStorage
 function loadAttributes() {
   const attributes = JSON.parse(localStorage.getItem("attributes"));
@@ -634,31 +664,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Navegar para a próxima página
       /* window.location.href = "attributes.html"; */
-    });
-  }
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  const button = document.getElementById("save-attributes-btn");
-  if (button) {
-    button.addEventListener("click", function () {
-      const strength = document.getElementById("strength").value;
-      const constitution = document.getElementById("constitution").value;
-      const dexterity = document.getElementById("dexterity").value;
-      const intelligence = document.getElementById("intelligence").value;
-      const wisdom = document.getElementById("wisdom").value;
-      const charisma = document.getElementById("charisma").value;
-
-      // Armazenar atributos no localStorage
-      localStorage.setItem("characterStrength", strength);
-      localStorage.setItem("characterConstitution", constitution);
-      localStorage.setItem("characterDexterity", dexterity);
-      localStorage.setItem("characterIntelligence", intelligence);
-      localStorage.setItem("characterWisdom", wisdom);
-      localStorage.setItem("characterCharisma", charisma);
-
-      // Navegar para a próxima página
-      window.location.href = "pericias.html";
     });
   }
 });

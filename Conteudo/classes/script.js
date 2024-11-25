@@ -19,4 +19,4 @@ function prevSlide() {
     showSlide(currentSlide);
 }
 
-setInterval(nextSlide, 20000); // Muda a cada 30 segundos
+setInterval(nextSlide, 5000); // Muda a cada 30 segundos
